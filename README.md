@@ -1,9 +1,11 @@
 # starter-static-site
 
-Will contain...
-
-* auto-importing of libs like React and Relay
+Contains:
+* react-router enabled static render AND dev server for active development
 * auto-installing npm modules
+
+Will contain...
+* auto-importing of libs like React and Relay
 * hotloader
 * github pages
 * oauth connections if desired?
