@@ -39,6 +39,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      'React': 'react',
+    }),
     new StaticSiteGeneratorPlugin('bundle.js', paths, {
       // Properties here are merged into `locals`
       // passed to the exported render function
