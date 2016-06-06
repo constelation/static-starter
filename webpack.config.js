@@ -4,6 +4,7 @@ const NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 const paths = [
   '/',
+  '/other',
   // '/hello/',
   // '/world/'
 ];
@@ -15,7 +16,7 @@ module.exports = {
   },
 
   output: {
-    filename: 'index.js',
+    filename: 'bundle.js',
     path: 'public',
     /* IMPORTANT! for StaticSiteGeneratorPlugin
      * You must compile to UMD or CommonJS
@@ -28,7 +29,7 @@ module.exports = {
       // { test: /\.css$/, loader: "style" },
       // { test: /\.css$/, loader: "css", query: { localIdentName: "[name]-[local]--[hash:base64:5]" } },
       // { test: /\.eot$/, loader: "file" },
-      { test: /\.js$/, loader: "babel", query: { cacheDirectory: true }, exclude: /node_modules/ },
+      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
       // { test: /\.json$/, loader: "json" },
       // { test: /\.(png|jpg)$/, loader: "url", query: { limit: 8192 } }, // Inline base64 URLs for <= 8K images
       // { test: /\.svg$/, loader: "url", query: { mimetype: "image/svg+xml" } },
@@ -38,7 +39,7 @@ module.exports = {
   },
 
   plugins: [
-    new StaticSiteGeneratorPlugin('main', paths, {
+    new StaticSiteGeneratorPlugin('bundle.js', paths, {
       // Properties here are merged into `locals`
       // passed to the exported render function
       // greet: 'Hello'

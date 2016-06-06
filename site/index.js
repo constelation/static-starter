@@ -1,18 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
+import routes from './scenes'
 
+import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router'
 import HtmlDocument from 'react-html-document'
-
-const metatags = [
-  {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'},
-  {httpEquiv: 'content-type', content: 'text/html; charset=utf-8'},
-]
 
 class Html extends React.Component {
   render() {
     return (
-      <HtmlDocument title='Site Title' metatags={metatags}>
+      <HtmlDocument
+        title='Site Title'
+        metatags={[
+          {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'},
+          {httpEquiv: 'content-type', content: 'text/html; charset=utf-8'},
+        ]}
+        scripts={[
+          'bundle.js',
+        ]}
+      >
         {this.props.children}
       </HtmlDocument>
     )
@@ -31,17 +37,23 @@ class Hello extends React.Component {
 
 // Client render (optional):
 if (typeof document !== 'undefined') {
+  // console.log(browserHistory);
   // Client render code goes here...
-  ReactDOM.render( <Hello />, document.getElementById( 'app' ) ) // 'app' is default id of Html's wrapper
+  ReactDOM.render( <Router history={browserHistory} routes={routes} />, document.getElementById( 'app' ) ) // 'app' is default id of Html's wrapper
 }
 
 // Exported static site renderer:
-export default function render( locals, callback ) {
-  const html = ReactDOMServer.renderToStaticMarkup(
-    <Html>
-      <Hello />
-    </Html>
-  )
+export default (locals, callback) => {
+  const history = createMemoryHistory();
+  const location = history.createLocation(locals.path);
 
-  callback( null, html )
+  match({ routes, location }, (error, redirectLocation, renderProps) => {
+    // console.log(renderProps);
+    callback( null, ReactDOMServer.renderToStaticMarkup(
+      <Html location={location}>
+        <RouterContext {...renderProps} />
+      </Html>
+    ))
+  })
+
 }

@@ -25,6 +25,8 @@
     "babel-loader": "^6.2.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-html-document": "^2.2.0"
+    "react-hot-loader": "^1.3.0",
+    "react-html-document": "^2.2.0",
+    "react-router": "^2.4.1"
   }
 }
