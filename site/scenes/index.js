@@ -4,6 +4,7 @@ import Home from './Home'
 import Other from './Other'
 import NotFound from './NotFound'
 
+// Note: be sure to update webpack.config.js's paths array with route changes
 export default (
   <Route component={App}>
     <Route path='/' >
