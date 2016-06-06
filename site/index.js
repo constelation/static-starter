@@ -39,7 +39,6 @@ if (typeof document !== 'undefined') {
   ReactDOM.render( <Router history={browserHistory} routes={routes} />, document.getElementById( 'app' ) ) // 'app' is default id of Html's wrapper
 }
 
-
 // Exported static site renderer:
 export default (locals, callback) => {
   const history = createMemoryHistory();
@@ -47,7 +46,7 @@ export default (locals, callback) => {
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     // console.log(renderProps);
-    callback( null, ReactDOMServer.renderToStaticMarkup(
+    callback( null, '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(
       <Html location={location}>
         <RouterContext {...renderProps} />
       </Html>

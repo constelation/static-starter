@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf public",
-    "dev": "npm run clean && webpack-dev-server --hot --progress --history-api-fallback",
+    "dev": "npm run clean && webpack-dev-server --progress --history-api-fallback",
     "build": "npm run clean && BUILD_PROD=true webpack --progress --colors",
     "build-prod": "npm run clean && BUILD_PROD=true webpack --progress --colors --optimize-minimize",
     "serve-build": "webpack-dev-server --content-base public --history-api-fallback --lazy",
