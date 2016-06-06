@@ -1,12 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "prestart": "rimraf public",
-    "start": "webpack-dev-server --content-base=public --hot --port=3000 --progress",
-    "webpack": "rimraf public && BUILD_PROD=true webpack --progress --colors",
-    "webpackProd": "rimraf public && BUILD_PROD=true webpack --progress --colors --optimize-minimize",
-    "dev": "webpack-dev-server --progress --colors --history-api-fallback",
-    "build": "webpack"
+    "clean": "rimraf public",
+    "dev": "npm run clean && webpack-dev-server --hot --progress --history-api-fallback",
+    "build": "npm run clean && BUILD_PROD=true webpack --progress --colors",
+    "build-prod": "npm run clean && BUILD_PROD=true webpack --progress --colors --optimize-minimize",
+    "serve-build": "webpack-dev-server --content-base public --history-api-fallback --lazy",
+    "start": "npm run dev"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

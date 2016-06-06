@@ -29,7 +29,7 @@ module.exports = {
       // { test: /\.css$/, loader: "style" },
       // { test: /\.css$/, loader: "css", query: { localIdentName: "[name]-[local]--[hash:base64:5]" } },
       // { test: /\.eot$/, loader: "file" },
-      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+      { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
       // { test: /\.json$/, loader: "json" },
       // { test: /\.(png|jpg)$/, loader: "url", query: { limit: 8192 } }, // Inline base64 URLs for <= 8K images
       // { test: /\.svg$/, loader: "url", query: { mimetype: "image/svg+xml" } },

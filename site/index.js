@@ -15,7 +15,7 @@ class Html extends React.Component {
           {httpEquiv: 'content-type', content: 'text/html; charset=utf-8'},
         ]}
         scripts={[
-          'bundle.js',
+          '/bundle.js',
         ]}
       >
         {this.props.children}
@@ -36,10 +36,9 @@ class Hello extends React.Component {
 
 // Client render (optional):
 if (typeof document !== 'undefined') {
-  // console.log(browserHistory);
-  // Client render code goes here...
   ReactDOM.render( <Router history={browserHistory} routes={routes} />, document.getElementById( 'app' ) ) // 'app' is default id of Html's wrapper
 }
+
 
 // Exported static site renderer:
 export default (locals, callback) => {
