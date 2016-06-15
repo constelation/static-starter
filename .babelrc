@@ -1,7 +1,8 @@
 
 {
   "plugins": [
-    "react-html-attrs"
+    "react-html-attrs",
+    "transform-decorators-legacy"
   ],
   "presets": [
     "react",

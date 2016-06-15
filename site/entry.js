@@ -1,9 +1,23 @@
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
+import useScroll from 'react-router-scroll'
 import routes from './scenes'
 
-import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router'
+import {
+  match,
+  browserHistory,
+  createMemoryHistory,
+  applyRouterMiddleware,
+  Router,
+  RouterContext,
+} from 'react-router'
 import HtmlDocument from 'react-html-document'
+
+const inlineStyles = `
+  body {
+    margin: 0px
+  }
+`
 
 class Html extends React.Component {
   render() {
@@ -17,6 +31,7 @@ class Html extends React.Component {
         scripts={[
           '/bundle.js',
         ]}
+        stylesheets={[{inline: inlineStyles}]}
       >
         {this.props.children}
       </HtmlDocument>
@@ -24,25 +39,22 @@ class Html extends React.Component {
   }
 }
 
-class Hello extends React.Component {
-  render() {
-    return (
-      <span>
-        hi there
-      </span>
-    )
-  }
-}
-
 // Client render (optional):
 if (typeof document !== 'undefined') {
-  ReactDOM.render( <Router history={browserHistory} routes={routes} />, document.getElementById( 'app' ) ) // 'app' is default id of Html's wrapper
+  ReactDOM.render(
+    <Router
+      history={browserHistory}
+      routes={routes}
+      render={applyRouterMiddleware(useScroll())}
+    />,
+    document.getElementById( 'app' ) // 'app' is default id of Html's wrapper
+  )
 }
 
 // Exported static site renderer:
 export default (locals, callback) => {
-  const history = createMemoryHistory();
-  const location = history.createLocation(locals.path);
+  const history = createMemoryHistory()
+  const location = history.createLocation(locals.path)
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     // console.log(renderProps);
