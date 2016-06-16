@@ -58,8 +58,8 @@ __Please consult the [React Playbook](https://github.com/kylpo/react-playbook)__
 - `npm run clean` - Delete the generated `public/` folder
 - `npm run build` - Generate static files in `public/`
 - `npm run build-prod` - Generate static files in `public/` for production (minified)
-- `npm run dev` - Start webpack-dev-server with hotloader enabled for hosting `public/`
 - `npm run serve-build` - Host `public/` as a production server would
+- `npm run dev` - Start webpack-dev-server with hotloader enabled for hosting `public/`
 - `npm start` - Generates static files, then run `dev`
 
 ### Recommended libs for taking this further
