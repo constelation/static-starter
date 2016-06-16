@@ -5,7 +5,8 @@ A starter repo for a static site to be hosted on something like S3,  Github Page
 ### Up and Running
 
 ```shell
-$ git clone https://github.com/Instrument/instrument-reactnative-bp.git MyApp
+$ git clone git@github.com:kylpo/starter-static-site.git MySite
+$ cd MySite
 $ npm install
 $ npm start
 $ open http://localhost:8080
