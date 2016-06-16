@@ -14,8 +14,12 @@ import {
 import HtmlDocument from 'react-html-document'
 
 const inlineStyles = `
-  body {
-    margin: 0px
+  /* box-sizing reset */
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  html {
+    box-sizing: border-box;
   }
 `
 
@@ -29,7 +33,7 @@ class Html extends React.Component {
           {httpEquiv: 'content-type', content: 'text/html; charset=utf-8'},
         ]}
         scripts={[
-          '/bundle.js',
+          `/bundle.js?t=${new Date().getTime()}`,
         ]}
         stylesheets={[{inline: inlineStyles}]}
       >
@@ -57,7 +61,6 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path)
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
-    // console.log(renderProps);
     callback( null, '<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(
       <Html location={location}>
         <RouterContext {...renderProps} />

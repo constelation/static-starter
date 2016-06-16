@@ -8,14 +8,18 @@ const paths = [
   '/',
   '/other',
   '/notFound',
-];
+]
 
 const plugins = [
 
   // Automatically loaded modules - means these imports are not needed in each file
   new webpack.ProvidePlugin({
-    'React': 'react',
-    'Radium': 'radium',
+    React: 'react',
+    Radium: 'radium',
+  }),
+
+  new webpack.DefinePlugin({
+    __DEV__: JSON.stringify(JSON.parse(process.env.DEV || 'false')),
   }),
 
   // Automatically `npm install` new imports and add to package.json
@@ -62,18 +66,18 @@ module.exports = {
 
 
   module: {
-      loaders: [
-        // { test: /\.css$/, loader: "style" },
-        // { test: /\.css$/, loader: "css", query: { localIdentName: "[name]-[local]--[hash:base64:5]" } },
-        // { test: /\.eot$/, loader: "file" },
-        { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
-        { test: /\.json$/, loader: 'json' },
-        { test: /\.(png|jpg)$/, loader: 'url', query: { limit: 8192 } }, // Inline base64 URLs for <= 8K images
-        { test: /\.svg$/, loader: 'url', query: { mimetype: 'image/svg+xml' } },
-        { test: /\.ttf$/, loader: 'url', query: { mimetype: 'application/octet-stream' } },
-        { test: /\.(woff|woff2)$/, loader: 'url', query: { mimetype: 'application/font-woff' } },
-      ],
-    },
+    loaders: [
+      // { test: /\.css$/, loader: "style" },
+      // { test: /\.css$/, loader: "css", query: { localIdentName: "[name]-[local]--[hash:base64:5]" } },
+      // { test: /\.eot$/, loader: "file" },
+      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.(png|jpg)$/, loader: 'url', query: { limit: 8192 } }, // Inline base64 URLs for <= 8K images
+      { test: /\.svg$/, loader: 'url', query: { mimetype: 'image/svg+xml' } },
+      { test: /\.ttf$/, loader: 'url', query: { mimetype: 'application/octet-stream' } },
+      { test: /\.(woff|woff2)$/, loader: 'url', query: { mimetype: 'application/font-woff' } },
+    ],
+  },
 
   devServer: {
     // webpack-dev-server uses generated index.html from `npm run build`

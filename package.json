@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf public",
-    "dev": "webpack-dev-server -d --inline --hot --progress --history-api-fallback",
+    "dev": "DEV=true webpack-dev-server -d --inline --hot --progress --history-api-fallback",
     "build": "npm run clean && BUILD_SITE=true webpack -d --progress --colors",
     "build-quiet": "npm run clean && BUILD_SITE=true webpack",
     "build-prod": "npm run clean && BUILD_SITE=true webpack -p --progress --colors --optimize-minimize",
@@ -32,6 +32,7 @@
   "dependencies": {
     "babel-loader": "^6.2.4",
     "radium": "^0.17.1",
+    "radium-normalize": "^2.0.3",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-hot-loader": "^1.3.0",
