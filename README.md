@@ -13,17 +13,24 @@ $ open http://localhost:8080
 
 ### Features
 
-- Render to html for fast initial page loads, then use react-router for SPA transitions
-- Auto-installs npm modules
-- Auto-imports of `React` and `Radium`. No need to import them in your components.
-- Hotloader for development
-- normalize.css and box-model reset
-- Similar dev experience to React Native
-  - Uses Radium for inline styles (syntax is very close to Native)
-  - `__DEV__` flag available in code
+Render to html for fast initial page loads, then use react-router for SPA transitions
+
+Auto-installs npm modules
+
+Auto-imports of `React` and `Radium`. No need to import them in your components.
+
+Hotloader for development
+
+normalize.css and box-model reset
+
+Similar dev experience to React Native
+- Uses Radium for inline styles (syntax is very close to Native)
+- `__DEV__` flag available in code
 
 ### Dev notes
+
 __Please consult the [React Playbook](https://github.com/kylpo/react-playbook)__ for style, layout, architecture, and rules
+
 #### Directory Layout
 ```
 .
@@ -42,12 +49,21 @@ __Please consult the [React Playbook](https://github.com/kylpo/react-playbook)__
 |
 ├── /lib                        # Your non-site-specific Components and functions
 |
-├── /tools/                     # Build automation scripts and utilities
 ├── /node_modules/              # 3rd-party libraries and utilities
 └── package.json                # The list of 3rd party libraries and utilities
 ```
 
+#### Run targets
+
+- `npm run clean` - Delete the generated `public/` folder
+- `npm run build` - Generate static files in `public/`
+- `npm run build-prod` - Generate static files in `public/` for production (minified)
+- `npm run dev` - Start webpack-dev-server with hotloader enabled for hosting `public/`
+- `npm run serve-build` - Host `public/` as a production server would
+- `npm start` - Generates static files, then run `dev`
+
 ### Recommended libs for taking this further
+- [mobx: Simple, scalable state management.](https://github.com/mobxjs/mobx)
 - [revalidate: Elegant and composable validations](https://github.com/jfairbank/revalidate)
 - [victory: A collection of composable React components for building interactive data visualizations](https://github.com/FormidableLabs/victory)
 - [velocity-react: React components for Velocity.js](https://github.com/twitter-fabric/velocity-react)
