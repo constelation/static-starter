@@ -55,23 +55,18 @@ __Please consult the [React Playbook](https://github.com/kylpo/react-playbook)__
 ```
 
 #### Run targets
-
 - `npm run clean` - Delete the generated `public/` folder
-- `npm run build` - Generate static files in `public/`
-- `npm run build-prod` - Generate static files in `public/` for production (minified)
-- `npm run serve-build` - Host `public/` as a production server would
-- `npm run dev` - Start webpack-dev-server with hotloader enabled for hosting `public/`
-- `npm start` - Generates static files, then run `dev`
+- `npm run build` - Generate static files in `public/` for dev
+- `npm run build:dev` - Generate static files in `public/` for dev
+- `npm run build:prod` - Generate static files in `public/` for production (minified)
+- `npm run server:dev` - Start webpack-dev-server with hotloader enabled for hosting `public/`
+- `npm run server:prod` - Host `public/` as a production server would
+- `npm run prod` - `build:prod` then `server:prod`
+- `npm start` - `build:dev` then `server:dev`
+- `npm deploy` - use `gh-pages` deploy `public/` to Github Pages
 
 ### Recommended libs for taking this further
-- [mobx: Simple, scalable state management.](https://github.com/mobxjs/mobx)
-- [revalidate: Elegant and composable validations](https://github.com/jfairbank/revalidate)
-- [victory: A collection of composable React components for building interactive data visualizations](https://github.com/FormidableLabs/victory)
-- [velocity-react: React components for Velocity.js](https://github.com/twitter-fabric/velocity-react)
-- [react-aim: Determine the cursor aim for triggering mouse events.](https://github.com/gabrielbull/react-aim)
-
-### How To Deploy to Github
-use gh-pages. More info to come.
+Again, consult the [Playbook](https://github.com/kylpo/react-playbook/tree/master/libs)
 
 ### Support
 Tweet [@kylpo](https://twitter.com/kylpo)
