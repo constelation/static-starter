@@ -20,6 +20,10 @@ const plugins = [
 
   new webpack.DefinePlugin({
     __DEV__: JSON.stringify(JSON.parse(process.env.DEV || 'false')),
+    __PROD__: JSON.stringify(JSON.parse(process.env.PROD || 'false')),
+
+    // for production version of React
+    'process.env.NODE_ENV': process.env.PROD === 'true' ? '"production"': '"development"',
   }),
 
   // Automatically `npm install` new imports and add to package.json

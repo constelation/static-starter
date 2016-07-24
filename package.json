@@ -1,14 +1,16 @@
 {
   "private": true,
   "scripts": {
-    "clean": "rimraf public",
-    "dev": "DEV=true webpack-dev-server -d --inline --hot --progress --history-api-fallback",
-    "build": "npm run clean && BUILD_SITE=true webpack -d --progress --colors",
-    "build-quiet": "npm run clean && BUILD_SITE=true webpack",
-    "build-prod": "npm run clean && BUILD_SITE=true webpack -p --progress --colors --optimize-minimize",
-    "serve-build": "serve public/ -p 8080",
     "lint": "eslint site lib",
-    "start": "npm run build-quiet && npm run dev"
+    "clean": "rimraf public",
+    "prebuild": "npm run clean",
+    "build": "BUILD_SITE=true webpack",
+    "build:dev": "DEV=true npm run build -- -d --progress --colors",
+    "build:prod": "PROD=true npm run build -- -p --progress --colors",
+    "server:dev": "DEV=true webpack-dev-server -d --inline --hot --progress --history-api-fallback",
+    "server:prod": "serve public/ -p 8080",
+    "start": "npm run build:dev && npm run server:dev",
+    "prod": "npm run build:prod && npm run server:prod"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
