@@ -21,6 +21,12 @@ const inlineStyles = `
   html {
     box-sizing: border-box;
   }
+
+  /* anti-aliasing */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 `
 
 class Html extends React.Component {
