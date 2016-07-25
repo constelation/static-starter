@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.9.0",
@@ -25,21 +26,22 @@
     "eslint": "^2.12.0",
     "eslint-config-kylpo": "^1.0.0",
     "eslint-plugin-react": "^5.1.1",
+    "file-loader": "^0.9.0",
     "gh-pages": "^0.11.0",
     "npm-install-webpack-plugin": "^4.0.0",
+    "react-hot-loader": "^1.3.0",
     "rimraf": "^2.5.2",
     "serve": "^1.4.0",
     "static-site-generator-webpack-plugin": "^2.1.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "babel-loader": "^6.2.4",
     "radium": "^0.17.1",
     "radium-normalize": "^2.0.3",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-hot-loader": "^1.3.0",
     "react-html-document": "^2.2.0",
     "react-router": "^2.4.1",
     "react-router-scroll": "^0.2.0"
