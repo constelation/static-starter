@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint site lib",
+    "reinstall": "rimraf node_modules && npm install",
     "clean": "rimraf public",
     "prebuild": "npm run clean",
     "build": "BUILD_SITE=true webpack",
