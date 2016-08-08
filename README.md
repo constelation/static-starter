@@ -29,10 +29,10 @@ Similar dev experience to React Native
 - `__DEV__` flag available in code
 
 ### Still to be added...
-- [schneidmaster/sitemap-webpack-plugin: Webpack plugin to generate a sitemap.](https://github.com/schneidmaster/sitemap-webpack-plugin)
-- [jantimon/favicons-webpack-plugin: Let webpack generate all your favicons and icons for you](https://github.com/jantimon/favicons-webpack-plugin)
-- [alansouzati/react-router-to-array: Convert your react router component to an array with all static routes](https://github.com/alansouzati/react-router-to-array)
-- [garbles/why-did-you-update: Puts your console on blast when React is making unnecessary updates.](https://github.com/garbles/why-did-you-update)
+- [sitemap-webpack-plugin: Webpack plugin to generate a sitemap.](https://github.com/schneidmaster/sitemap-webpack-plugin)
+- [favicons-webpack-plugin: Let webpack generate all your favicons and icons for you](https://github.com/jantimon/favicons-webpack-plugin)
+- [react-router-to-array: Convert your react router component to an array with all static routes](https://github.com/alansouzati/react-router-to-array)
+- [why-did-you-update: Puts your console on blast when React is making unnecessary updates.](https://github.com/garbles/why-did-you-update)
 
 ### Dev notes
 
