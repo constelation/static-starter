@@ -5,8 +5,10 @@ A starter repo for a static site to be hosted on something like S3,  Github Page
 ### Up and Running
 
 ```shell
-$ git clone git@github.com:kylpo/starter-static-site.git MySite
-$ cd MySite
+$ git clone git@github.com:kylpo/starter-static-site.git <YOUR_REPO_NAME>
+$ cd <YOUR_REPO_NAME>
+$ git remote set-url origin <YOUR_NEWLY_CREATED_GIT_REPO_URL>
+$ git remote add upstream git@github.com:kylpo/starter-static-site.git #for merging future updates
 $ npm install
 $ npm start
 $ open http://localhost:8080
@@ -62,14 +64,23 @@ __Please consult the [React Playbook](https://github.com/kylpo/react-playbook)__
 
 #### Run targets
 - `npm run clean` - Delete the generated `public/` folder
+- `npm run reinstall` - Delete `node_modules`, then install them again
 - `npm run build` - Generate static files in `public/` for dev
 - `npm run build:dev` - Generate static files in `public/` for dev
 - `npm run build:prod` - Generate static files in `public/` for production (minified)
 - `npm run server:dev` - Start webpack-dev-server with hotloader enabled for hosting `public/`
 - `npm run server:prod` - Host `public/` as a production server would
+- `npm run dev` - `build:dev` then `server:dev`
 - `npm run prod` - `build:prod` then `server:prod`
-- `npm start` - `build:dev` then `server:dev`
+- `npm start` - `run dev`
 - `npm deploy` - use `gh-pages` deploy `public/` to Github Pages
+
+#### Updating repo with Starter-Static-Site changes after forking it
+```shell
+$ git fetch upstream
+$ git checkout master
+$ git merge upstream/master
+```
 
 ### Recommended libs for taking this further
 Again, consult the [Playbook](https://github.com/kylpo/react-playbook/tree/master/libs)
