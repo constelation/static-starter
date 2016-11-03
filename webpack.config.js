@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
-const NpmInstallPlugin = require('npm-install-webpack-plugin')
+// const NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 // The routes that should generate *.html files for being served statically
 const paths = [
@@ -15,7 +15,16 @@ const plugins = [
   // Automatically loaded modules - means these imports are not needed in each file
   new webpack.ProvidePlugin({
     React: 'react',
-    Radium: 'radium',
+    Col: 'constelation-Col',
+    Button: 'constelation-Button',
+    BackgroundImage: 'constelation-BackgroundImage',
+    Row: 'constelation-Row',
+    Flex: 'constelation-Flex',
+    Text: 'constelation-Text',
+    View: 'constelation-View',
+    Style_: 'constelation-Style_',
+    Event_: 'constelation-Event_',
+    Animate_: 'constelation-Animate_',
   }),
 
   new webpack.DefinePlugin({
@@ -27,7 +36,7 @@ const plugins = [
   }),
 
   // Automatically `npm install` new imports and add to package.json
-  new NpmInstallPlugin(),
+  // new NpmInstallPlugin(),
 
   // Does not send code with errors to bundle
   // Especially important for hot loader
@@ -74,7 +83,13 @@ module.exports = {
       // { test: /\.css$/, loader: "style" },
       // { test: /\.css$/, loader: "css", query: { localIdentName: "[name]-[local]--[hash:base64:5]" } },
       // { test: /\.eot$/, loader: "file" },
-      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        // loaders: ['react-hot', 'babel'],
+        // include: path.join(__dirname, 'site'),
+        exclude: /node_modules/
+      },
       { test: /\.json$/, loader: 'json' },
       { test: /\.(png|jpg)$/, loader: 'url', query: { limit: 8192 } }, // Inline base64 URLs for <= 8K images
       { test: /\.svg$/, loader: 'url', query: { mimetype: 'image/svg+xml' } },

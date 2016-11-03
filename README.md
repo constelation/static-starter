@@ -1,14 +1,14 @@
-# Kylpo's Starter Static Site
+# Constelation's Starter Static Site
 
 A starter repo for a static site to be hosted on something like S3,  Github Pages, or Netlify
 
 ### Up and Running
 
 ```shell
-$ git clone git@github.com:kylpo/starter-static-site.git <YOUR_REPO_NAME>
+$ git clone git@github.com:constelation/starter-static-site.git <YOUR_REPO_NAME>
 $ cd <YOUR_REPO_NAME>
 $ git remote set-url origin <YOUR_NEWLY_CREATED_GIT_REPO_URL>
-$ git remote add upstream git@github.com:kylpo/starter-static-site.git #for merging future updates
+$ git remote add upstream git@github.com:constelation/starter-static-site.git #for merging future updates
 $ npm install
 $ npm start
 $ open http://localhost:8080
