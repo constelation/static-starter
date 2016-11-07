@@ -1,0 +1,9 @@
+[libs]
+#flow-typed/
+# ./node_modules/react/lib/React.js
+#./node_modules/constelation-View/dist/
+
+[options]
+# module.system=haste
+# module.name_mapper='^React$' -> 'react'
+module.name_mapper='^View$' -> 'constelation-View'

@@ -1,2 +1,1 @@
-import Root from './App'
-export default Root
+export { default } from './App'
