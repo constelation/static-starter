@@ -4,7 +4,6 @@ import React from 'react'
 import Col from 'constelation-Col'
 import Row from 'constelation-Row'
 import Flex from 'constelation-Flex'
-import Text from 'constelation-Text'
 import Style_ from 'constelation-Style_'
 import { Link } from 'react-router'
 

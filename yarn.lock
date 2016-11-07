@@ -1184,8 +1184,8 @@ constants-browserify@0.0.1:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-0.0.1.tgz#92577db527ba6c4cf0a4568d84bc031f441e21f2"
 
 constelation-Animate_@latest:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/constelation-Animate_/-/constelation-Animate_-3.1.0.tgz#b5a63ab7352610f0f760ee93d36a9c9a5437a8d7"
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/constelation-Animate_/-/constelation-Animate_-3.2.0.tgz#85c88f376c01efde14dc7f8cf6f019b0bf251393"
   dependencies:
     raf "^3.3.0"
     react-addons-shallow-compare "^15.3.1"
@@ -1229,8 +1229,8 @@ constelation-Style_@latest:
   resolved "https://registry.yarnpkg.com/constelation-Style_/-/constelation-Style_-3.1.0.tgz#c94fcffe0428492a556e63334c103afd1b492bb1"
 
 constelation-Text@latest:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/constelation-Text/-/constelation-Text-3.1.1.tgz#5021c2c641ffd83fac148e604c68669bbcef12ef"
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/constelation-Text/-/constelation-Text-3.2.0.tgz#dea87e20a8aee46e77e2d0f8f0190d0b10a1b93c"
 
 constelation-View@latest:
   version "3.1.0"

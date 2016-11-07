@@ -1,6 +1,7 @@
 [libs]
 #flow-typed/
 # ./node_modules/react/lib/React.js
+#./node_modules/constelation-Text/dist/index.js.flow
 #./node_modules/constelation-View/dist/
 
 [options]
