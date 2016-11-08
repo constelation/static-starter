@@ -1,3 +1,5 @@
+// @flow
+
 import { Route, IndexRoute } from 'react-router'
 import App from './App'
 import Home from './Home'

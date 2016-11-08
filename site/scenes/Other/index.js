@@ -1,2 +1,2 @@
-import Root from './Other'
-export default Root
+// @flow
+export { default } from './Other'

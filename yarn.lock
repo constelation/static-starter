@@ -1184,8 +1184,8 @@ constants-browserify@0.0.1:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-0.0.1.tgz#92577db527ba6c4cf0a4568d84bc031f441e21f2"
 
 constelation-Animate_@latest:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/constelation-Animate_/-/constelation-Animate_-3.2.0.tgz#85c88f376c01efde14dc7f8cf6f019b0bf251393"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Animate_/-/constelation-Animate_-4.0.0.tgz#c8a0a9f6ae586666e362d1b28196e3264fa1ca7b"
   dependencies:
     raf "^3.3.0"
     react-addons-shallow-compare "^15.3.1"
@@ -1199,8 +1199,8 @@ constelation-Button@latest:
   resolved "https://registry.yarnpkg.com/constelation-Button/-/constelation-Button-3.1.0.tgz#44df937830ffdd521e5ca46e2cc8a92507a6e8d4"
 
 constelation-Col@latest:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/constelation-Col/-/constelation-Col-3.1.0.tgz#ba5d4d86fd4c842fd4150b6487b2d0481ad0de89"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Col/-/constelation-Col-4.0.0.tgz#1d936b1f16d897fb0d6456a259dfda97fb71655e"
   dependencies:
     constelation-display-component-factory "^3.1.0"
 
@@ -1209,32 +1209,32 @@ constelation-display-component-factory@^3.1.0:
   resolved "https://registry.yarnpkg.com/constelation-display-component-factory/-/constelation-display-component-factory-3.1.0.tgz#709a5736f533bb4a0fdd2f807263f5746fc25a0c"
 
 constelation-Event_@latest:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/constelation-Event_/-/constelation-Event_-3.0.0.tgz#eb6b33abba5db5fed2c123e9a931bfcdc2973e7f"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Event_/-/constelation-Event_-4.0.0.tgz#232285a8ffb12593c93d01659795cae576d9ab07"
 
 constelation-Flex@latest:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/constelation-Flex/-/constelation-Flex-3.1.0.tgz#6d72091c74099b1afc7502b05b61c860ef067841"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Flex/-/constelation-Flex-4.0.0.tgz#2e658c8fcb25f792d61b35aa2fc05d5d712645ac"
   dependencies:
     constelation-display-component-factory "^3.1.0"
 
 constelation-Row@latest:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/constelation-Row/-/constelation-Row-3.1.0.tgz#3f828b800bbd30c64ac2442404ddb66637f3ff8a"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Row/-/constelation-Row-4.0.0.tgz#aad43530a823d133637abfb22f0600eb9da45f5d"
   dependencies:
     constelation-display-component-factory "^3.1.0"
 
 constelation-Style_@latest:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/constelation-Style_/-/constelation-Style_-3.1.0.tgz#c94fcffe0428492a556e63334c103afd1b492bb1"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Style_/-/constelation-Style_-4.0.0.tgz#821c739fdc96ad37885db4b968f7053f259a7d5a"
 
 constelation-Text@latest:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/constelation-Text/-/constelation-Text-3.2.0.tgz#dea87e20a8aee46e77e2d0f8f0190d0b10a1b93c"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-Text/-/constelation-Text-4.0.0.tgz#0ed1fd071607db6f07f67233778dbaebb88b8924"
 
 constelation-View@latest:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/constelation-View/-/constelation-View-3.1.0.tgz#035bad5e8d41f83b979146ab8a68ffa0b8d522d4"
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-View/-/constelation-View-4.0.0.tgz#21a89254706dec04008e6da04e22d03c407a2ea3"
   dependencies:
     constelation-display-component-factory "^3.1.0"
 
@@ -1334,7 +1334,13 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@*, debug@^2.1.1, debug@^2.2.0, debug@~2.2.0:
+debug@*, debug@^2.1.1, debug@^2.2.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.3.0.tgz#3912dc55d7167fc3af17d2b85c13f93deaedaa43"
+  dependencies:
+    ms "0.7.2"
+
+debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
@@ -1815,8 +1821,8 @@ forever-agent@~0.6.1:
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
 
 form-data@~2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.1.1.tgz#4adf0342e1a79afa1e84c8c320a9ffc82392a1f3"
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.1.2.tgz#89c3534008b97eada4cbb157d58f6f5df025eae4"
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.5"
@@ -2618,6 +2624,10 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, "mkdirp@>=0.5 0", mkdirp@~0.5.0, mkdirp@~0.5.1, mk
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
+
+ms@0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
 
 mute-stream@0.0.5:
   version "0.0.5"
