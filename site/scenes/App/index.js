@@ -1,2 +1,2 @@
-import Root from './App'
-export default Root
+// @flow
+export { default } from './App'

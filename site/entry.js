@@ -1,3 +1,5 @@
+// @flow
+
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
 import useScroll from 'react-router-scroll'
@@ -46,7 +48,7 @@ const globalStyles = `
 
 
 // Exported static site renderer:
-export default (locals, callback) => {
+export default (locals: Object, callback: Function) => {
   const history = createMemoryHistory()
   const location = history.createLocation(locals.path)
 

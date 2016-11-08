@@ -1,2 +1,2 @@
-import Root from './NotFound'
-export default Root
+// @flow
+export { default } from './NotFound'
