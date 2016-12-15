@@ -5,8 +5,13 @@
     "transform-decorators-legacy"
   ],
   "presets": [
+    ["es2015",
+      {
+        "modules": false,
+        "loose": true,
+      }
+    ],
     "react",
-    "es2015",
     "stage-0"
   ]
 }
