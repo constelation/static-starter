@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
-const BabiliPlugin = require("babili-webpack-plugin");
+const BabiliPlugin = require("babili-webpack-plugin")
 // const NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 
@@ -14,9 +14,37 @@ const paths = [
 
 module.exports = function (env = {}) {
   const config = {
-    entry: {
-      'main': './site/entry.js',
-    },
+    // entry: {
+    //   'main': './site/entry.js',
+    //   'hot': [
+    //     'react-hot-loader/patch',
+    //     // activate HMR for React
+    //
+    //     'webpack-dev-server/client?http://localhost:8080',
+    //     // bundle the client for webpack-dev-server
+    //     // and connect to the provided endpoint
+    //
+    //     'webpack/hot/only-dev-server',
+    //     // bundle the client for hot reloading
+    //     // only- means to only hot reload for successful updates
+    //   ]
+    // },
+    entry: env.buildSite
+      ? {main: './site/entry.js'}
+      : [
+        'react-hot-loader/patch',
+        // activate HMR for React
+
+        'webpack-dev-server/client?http://localhost:8080',
+        // bundle the client for webpack-dev-server
+        // and connect to the provided endpoint
+
+        'webpack/hot/only-dev-server',
+        // bundle the client for hot reloading
+        // only- means to only hot reload for successful updates
+
+        './site/entry.js',
+      ],
 
     output: {
       // Name of the js bundle
@@ -63,10 +91,13 @@ module.exports = function (env = {}) {
       ],
     },
 
+    devtool: 'inline-source-map',
+
     devServer: {
       // webpack-dev-server uses generated index.html from `npm run build`
       contentBase: 'public',
     },
+
   }
 
   config.plugins = [
@@ -129,6 +160,13 @@ module.exports = function (env = {}) {
     config.performance = {
       hints: false,
     }
+
+    config.plugins.push(
+      // activates HMR
+      new webpack.HotModuleReplacementPlugin(),
+      // prints more readable module names in the browser console on HMR updates
+      new webpack.NamedModulesPlugin()
+    )
   }
 
   return config

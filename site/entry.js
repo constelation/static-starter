@@ -6,6 +6,7 @@ import useScroll from 'react-router-scroll'
 import routes from './scenes'
 import { renderStatic } from 'glamor/server'
 import { rehydrate } from 'glamor'
+import { AppContainer } from 'react-hot-loader'
 
 import {
   match,
@@ -20,14 +21,67 @@ import {
 if (typeof document !== 'undefined') {
   rehydrate(window._glam)
 
-  ReactDOM.render(
-    <Router
-      history={browserHistory}
-      routes={routes}
-      render={applyRouterMiddleware(useScroll())}
-    />,
-    document.getElementById( 'root' )
-  )
+  // if (__DEV__) {
+  //   const render = (updatedRoutes) => {
+  //     ReactDOM.render(
+  //       <AppContainer>
+  //         <Router
+  //           history={browserHistory}
+  //           routes={updatedRoutes}
+  //           render={applyRouterMiddleware(useScroll())}
+  //         />
+  //       </AppContainer>,
+  //       document.getElementById( 'root' )
+  //     )
+  //   }
+  //
+  //   render(routes)
+  //
+  //   // Hot Module Replacement API
+  //   if (module.hot) {
+  //     module.hot.accept('./scenes', () => {
+  //       const newRoutes = require('./scenes').default
+  //
+  //       render(newRoutes)
+  //     })
+  //   }
+  // }
+  // // non-HMR in prod
+  // else {
+  //   ReactDOM.render(
+  //     <Router
+  //       history={browserHistory}
+  //       routes={routes}
+  //       render={applyRouterMiddleware(useScroll())}
+  //     />,
+  //     document.getElementById( 'root' )
+  //   )
+  // }
+
+  const render = (routes) => {
+    ReactDOM.render(
+      <AppContainer>
+        <Router
+          history={browserHistory}
+          routes={routes}
+          render={applyRouterMiddleware(useScroll())}
+        />
+      </AppContainer>,
+      document.getElementById( 'root' )
+    )
+  }
+
+  render(routes)
+
+  // Hot Module Replacement API
+  if (module.hot) {
+    module.hot.accept('./scenes', () => {
+      const newRoutes = require('./scenes').default
+
+      render(newRoutes)
+    })
+  }
+
 }
 
 const globalStyles = `
