@@ -1,7 +1,12 @@
 // @flow
+// Imports {{{
+
+import 'glamor/reset'
 
 import React from 'react'
-import 'glamor/reset'
+import View from 'constelation-View'
+
+// }}}
 
 export default class App extends React.Component {
   render() {

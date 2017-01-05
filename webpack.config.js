@@ -12,21 +12,6 @@ const paths = [
 
 const plugins = [
 
-  // Automatically loaded modules - means these imports are not needed in each file
-  new webpack.ProvidePlugin({
-    React: 'react',
-    Col: 'constelation-Col',
-    Button: 'constelation-Button',
-    BackgroundImage: 'constelation-BackgroundImage',
-    Row: 'constelation-Row',
-    Flex: 'constelation-Flex',
-    Text: 'constelation-Text',
-    View: 'constelation-View',
-    Style_: 'constelation-Style_',
-    Event_: 'constelation-Event_',
-    Animate_: 'constelation-Animate_',
-  }),
-
   new webpack.DefinePlugin({
     __DEV__: JSON.stringify(JSON.parse(process.env.DEV || 'false')),
     __PROD__: JSON.stringify(JSON.parse(process.env.PROD || 'false')),
@@ -74,6 +59,7 @@ module.exports = {
     root: path.resolve('./'),
     alias: {
       shared: 'site/shared',
+      stores: 'site/stores',
     },
   },
 

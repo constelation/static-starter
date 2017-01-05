@@ -1,11 +1,5 @@
 // @flow
-
-import ReactDOM from 'react-dom'
-import ReactDOMServer from 'react-dom/server'
-import useScroll from 'react-router-scroll'
-import routes from './scenes'
-import { renderStatic } from 'glamor/server'
-import { rehydrate } from 'glamor'
+// Imports {{{
 
 import {
   match,
@@ -15,6 +9,16 @@ import {
   Router,
   RouterContext,
 } from 'react-router'
+import { rehydrate } from 'glamor'
+import { renderStatic } from 'glamor/server'
+import { useScroll } from 'react-router-scroll'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ReactDOMServer from 'react-dom/server'
+
+import routes from './scenes'
+
+// }}}
 
 // Client render (optional):
 if (typeof document !== 'undefined') {
