@@ -84,6 +84,6 @@ export default (locals: Object, callback: Function) => {
           <script src="/bundle.js?t=${new Date().getTime()}"></script>
         </body>
       </html>
-    `
-  )})
+    `)
+  })
 }
