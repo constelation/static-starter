@@ -37,13 +37,17 @@ if (typeof document !== 'undefined') {
   if (module.hot) {
     module.hot.accept()
 
-    // Patch console.error to hide this bogus HMR/react-router warning
-    // See https://github.com/gaearon/react-hot-loader/issues/298#issuecomment-236510239
+    /*
+     * Patch console.error to hide this bogus HMR/react-router warning
+     * See https://github.com/gaearon/react-hot-loader/issues/298#issuecomment-236510239
+     */
     const orgError = console.error // eslint-disable-line no-console
+    //$FlowIgnore
     console.error = (...args) => { // eslint-disable-line no-console
       if (args && args.length === 1 && (typeof args[0] === 'string') && args[0].indexOf('You cannot change <Router routes>;') > -1) {
         // React route changed
-      } else {
+      }
+      else {
         // Log the error as normally
         orgError.apply(console, args)
       }
