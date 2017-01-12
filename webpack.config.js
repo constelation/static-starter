@@ -40,6 +40,7 @@ module.exports = function (env = {}) {
       ],
       alias: {
         shared: 'site/shared',
+        stores: 'site/stores',
       },
     },
 
@@ -99,7 +100,7 @@ module.exports = function (env = {}) {
 
     // Does not send code with errors to bundle
     // Especially important for hot loader
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ]
 
   if (env.buildSite) {

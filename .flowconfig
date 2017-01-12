@@ -1,14 +1,14 @@
 [libs]
-./node_modules/constelation-Animate_/dist/index.js.flow
-./node_modules/constelation-Col/dist/index.js.flow
-./node_modules/constelation-Event_/dist/index.js.flow
-./node_modules/constelation-Flex/dist/index.js.flow
-./node_modules/constelation-Row/dist/index.js.flow
-./node_modules/constelation-Style_/dist/index.js.flow
-./node_modules/constelation-Text/dist/index.js.flow
-./node_modules/constelation-View/dist/index.js.flow
+./node_modules/constelation-Animate_/index.js.flow
+./node_modules/constelation-Col/index.js.flow
+./node_modules/constelation-Event_/index.js.flow
+./node_modules/constelation-Flex/index.js.flow
+./node_modules/constelation-Row/index.js.flow
+./node_modules/constelation-Style_/index.js.flow
+./node_modules/constelation-Text/index.js.flow
+./node_modules/constelation-View/index.js.flow
 
 [options]
-# module.system=haste
-# module.name_mapper='^React$' -> 'react'
-#module.name_mapper='^View$' -> 'constelation-View'
+
+module.name_mapper='^shared\/\(.*\)$' -> '<PROJECT_ROOT>/site/shared/\1'
+module.name_mapper='^stores\/\(.*\)$' -> '<PROJECT_ROOT>/site/stores/\1'

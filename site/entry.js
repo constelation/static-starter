@@ -1,11 +1,5 @@
 // @flow
-
-import ReactDOM from 'react-dom'
-import ReactDOMServer from 'react-dom/server'
-import useScroll from 'react-router-scroll'
-import routes from './scenes'
-import { renderStatic } from 'glamor/server'
-import { rehydrate } from 'glamor'
+// Imports {{{
 
 import {
   match,
@@ -15,6 +9,16 @@ import {
   Router,
   RouterContext,
 } from 'react-router'
+import { rehydrate } from 'glamor'
+import { renderStatic } from 'glamor/server'
+import { useScroll } from 'react-router-scroll'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ReactDOMServer from 'react-dom/server'
+
+import routes from './scenes'
+
+// }}}
 
 // Client render (optional):
 if (typeof document !== 'undefined') {
@@ -61,11 +65,13 @@ export default (locals: Object, callback: Function) => {
       <!DOCTYPE html>
       <html>
         <head>
+          <meta charset="utf-8">
+          <meta http-equiv="x-ua-compatible" content="ie=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <!-- The above 3 meta tags *must* come first in the head, according to https://github.com/joshbuchea/HEAD; any other head content must come *after* these tags -->
+          <title>Site Title</title>
           <style>${globalStyles}</style>
           <style>${css}</style>
-          <title>Site Title</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-          <meta http-equiv="content-type" content="text/html; charset=utf-8">
         </head>
         <body>
           <div id="root">
@@ -78,6 +84,6 @@ export default (locals: Object, callback: Function) => {
           <script src="/bundle.js?t=${new Date().getTime()}"></script>
         </body>
       </html>
-    `
-  )})
+    `)
+  })
 }
