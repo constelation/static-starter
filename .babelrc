@@ -2,7 +2,8 @@
 {
   "plugins": [
     "react-html-attrs",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "react-hot-loader/babel"
   ],
   "presets": [
     ["es2015",
