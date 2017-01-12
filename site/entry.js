@@ -1,6 +1,7 @@
 // @flow
 // Imports {{{
 
+import { AppContainer } from 'react-hot-loader'
 import {
   match,
   browserHistory,
@@ -20,18 +21,32 @@ import routes from './scenes'
 
 // }}}
 
+const render = (appRoutes) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Router
+        history={browserHistory}
+        routes={appRoutes}
+        render={applyRouterMiddleware(useScroll())}
+      />
+    </AppContainer>,
+    document.getElementById('root')
+  )
+}
+
 // Client render (optional):
 if (typeof document !== 'undefined') {
   rehydrate(window._glam)
 
-  ReactDOM.render(
-    <Router
-      history={browserHistory}
-      routes={routes}
-      render={applyRouterMiddleware(useScroll())}
-    />,
-    document.getElementById( 'root' )
-  )
+  render(routes)
+
+  // Hot Module Replacement API
+  if (module.hot) {
+    module.hot.accept('./scenes', () => {
+      const hotRoutes = require('./scenes').default
+      render(hotRoutes)
+    });
+  }
 }
 
 const globalStyles = `
