@@ -2,11 +2,17 @@
 {
   "plugins": [
     "react-html-attrs",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "react-hot-loader/babel"
   ],
   "presets": [
+    ["es2015",
+      {
+        "modules": false,
+        "loose": true,
+      }
+    ],
     "react",
-    "es2015",
     "stage-0"
   ]
 }

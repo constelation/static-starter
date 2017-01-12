@@ -9,9 +9,9 @@ import {
   Router,
   RouterContext,
 } from 'react-router'
+import { useScroll } from 'react-router-scroll'
 import { rehydrate } from 'glamor'
 import { renderStatic } from 'glamor/server'
-import { useScroll } from 'react-router-scroll'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
@@ -30,8 +30,29 @@ if (typeof document !== 'undefined') {
       routes={routes}
       render={applyRouterMiddleware(useScroll())}
     />,
-    document.getElementById( 'root' )
+    document.getElementById('root')
   )
+
+  // Hot Module Replacement API
+  if (module.hot) {
+    module.hot.accept()
+
+    /*
+     * Patch console.error to hide this bogus HMR/react-router warning
+     * See https://github.com/gaearon/react-hot-loader/issues/298#issuecomment-236510239
+     */
+    const orgError = console.error // eslint-disable-line no-console
+    //$FlowIgnore
+    console.error = (...args) => { // eslint-disable-line no-console
+      if (args && args.length === 1 && (typeof args[0] === 'string') && args[0].indexOf('You cannot change <Router routes>;') > -1) {
+        // React route changed
+      }
+      else {
+        // Log the error as normally
+        orgError.apply(console, args)
+      }
+    }
+  }
 }
 
 const globalStyles = `

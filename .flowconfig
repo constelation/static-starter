@@ -10,5 +10,11 @@
 
 [options]
 
+esproposal.decorators=ignore
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
 module.name_mapper='^shared\/\(.*\)$' -> '<PROJECT_ROOT>/site/shared/\1'
 module.name_mapper='^stores\/\(.*\)$' -> '<PROJECT_ROOT>/site/stores/\1'
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
