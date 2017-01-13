@@ -1,9 +1,14 @@
 
 {
   "plugins": [
+    // able to use `class` instead of `className` and `for` instead of `htmlFor`
     "react-html-attrs",
+
+    // handle decorators
     "transform-decorators-legacy",
-    "react-hot-loader/babel"
+
+    // handle do expressions (currently stage-0)
+    "transform-do-expressions",
   ],
   "presets": [
     ["es2015",
@@ -13,6 +18,28 @@
       }
     ],
     "react",
-    "stage-0"
-  ]
+
+    // class properties and beyond
+    "stage-2"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        // needed for hot loader
+        "react-hot-loader/babel",
+
+        // adds file and line # to components
+        "transform-react-jsx-source",
+      ]
+    },
+    "production": {
+      "plugins": [
+        // Hoists element creation to the top level for subtrees that are fully static
+        "transform-react-constant-elements",
+
+        // replaces react.createElement with inline if no ref or obj spread
+        "transform-react-inline-elements",
+      ]
+    }
+  }
 }
