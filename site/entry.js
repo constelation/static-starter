@@ -102,7 +102,8 @@ export default (locals: Object, callback: Function) => {
           <script>
             window._glam = ${JSON.stringify(ids)}
           </script>
-          <script src="/bundle.js?t=${new Date().getTime()}"></script>
+          <script src="vendor.js?t=${new Date().getTime()}" charset="utf-8"></script>
+          <script src="main.js?t=${new Date().getTime()}" charset="utf-8"></script>
         </body>
       </html>
     `)
