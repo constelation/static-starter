@@ -82,8 +82,11 @@ module.exports = function (env = {}) {
 
     // prod: 'source-map' to see full source (and inspect with source-map-explorer)
     //       consider 'cheap-module-source-map' or null if you want to hide code in prod
-    // dev:  'eval' is fastest add sourcemap to bundle
-    devtool: env.prod ? 'source-map' : 'inline-source-map',
+    // dev:  'eval' is fastest add sourcemap to bundle, but shows ugly code. Use 'cheap-eval-source-map' instead.
+    //
+    // Note: 'cheap-eval-source-map' is not breakpointable atm, so 'source-map' everything for now
+    // devtool: env.prod ? 'source-map' : 'cheap-eval-source-map',
+    devtool: 'source-map',
 
     //--How to bundle?--
     // Note: evaluates from top-to-bottom (meaning first returned value is significant)
@@ -173,11 +176,11 @@ module.exports = function (env = {}) {
       }
 
       config.plugins.push(
-        new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
+        new webpack.HotModuleReplacementPlugin(),
 
-        new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
+        new webpack.NamedModulesPlugin(),
 
         // Does not send code with errors to bundle
         // Especially important for hot loader
