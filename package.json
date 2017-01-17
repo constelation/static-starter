@@ -21,7 +21,7 @@
     "prod": "npm run clean && npm run build-html:prod && npm run build-js:prod && npm run server:prod",
     "dev": "npm run clean && npm run build-html:dev && npm run build-js:dev && npm run server:dev",
     "start": "npm run clean && npm run build-js:dev && npm run server:dev",
-    "deploy": "rimraf doc && cp -r public doc"
+    "deploy": "rimraf docs && cp -r public docs"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
