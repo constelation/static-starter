@@ -1,8 +1,9 @@
 // @flow
 // Imports {{{
 
-import { Route, IndexRoute } from 'react-router'
+import IndexRoute from 'react-router/lib/IndexRoute'
 import React from 'react'
+import Route from 'react-router/lib/Route'
 
 import App from './App'
 import Home from './Home'
@@ -16,6 +17,7 @@ export default (
   <Route component={App}>
     <Route path='/' >
       <IndexRoute component={Home} />
+
       <Route path='other' component={Other} />
     </Route>
     <Route path='*' component={NotFound} />

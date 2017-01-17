@@ -1,9 +1,11 @@
+// Credits: webpack2's offical docs and https://presentations.survivejs.com/advanced-webpack/
+
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const BabiliPlugin = require("babili-webpack-plugin");
-// const NpmInstallPlugin = require('npm-install-webpack-plugin')
-
+const CompressionPlugin = require("compression-webpack-plugin");
 
 // The routes that should generate *.html files for being served statically
 const paths = [
@@ -12,40 +14,39 @@ const paths = [
   '/notFound',
 ]
 
+const entryFileLocation = './site/entry.client.js'
+
 module.exports = function (env = {}) {
   const config = {
+
+    //--Where to start bundling?--
     entry: {
-      'main': env.buildSite ? './site/entry.js' : [
-        'react-hot-loader/patch',
-        // activate HMR for React
-
-        'webpack-dev-server/client?http://localhost:8080',
-        // bundle the client for webpack-dev-server
-        // and connect to the provided endpoint
-
-        'webpack/hot/only-dev-server',
-        // bundle the client for hot reloading
-        // only- means to only hot reload for successful updates
-
-        './site/entry.js'
-      ],
+      main: entryFileLocation,
+      vendor: [
+        'react',
+        'react-dom',
+        'glamor',
+        'history',
+        'lodash/pick',
+        'lodash/omit',
+      /*, 'lodash'*/], //comment out lodash because it'll vendor whole lodash lib
     },
 
+    //--Where to output?--
     output: {
-      // Name of the js bundle
-      filename: 'bundle.js',
+      // Note: currently unable to use [hash].[name].js since webpack is run twice for `prod` to gen html.
+      // Hopefully static-site-generator will have a fix for code splitting so I can turn hashing back on for webpack long-term caching
       // filename: '[chunkhash].[name].js',
+      filename: '[name].js',
 
       // Put generated files in this directory
       path: path.join(__dirname, './public'),
 
       // When a loader does not inline, prefix their urls with publicPath
       publicPath: '/',
-
-      // Required for StaticSiteGeneratorPlugin
-      libraryTarget: 'umd',
     },
 
+    //--How to resolve imports?--
     resolve: {
       modules: [
         path.join(__dirname, './'),
@@ -57,89 +58,147 @@ module.exports = function (env = {}) {
       },
     },
 
+    //--How to transform from one form to another?--
+    // Note: evaluates from bottom-to-top, right-to-left
     module: {
       rules: [
-        // { test: /\.css$/, loader: "style" },
-        // { test: /\.css$/, loader: "css", options: { localIdentName: "[name]-[local]--[hash:base64:5]" } },
-        // { test: /\.eot$/, loader: "file" },
         {
           test: /\.js$/,
           use: ['babel-loader'],
-          // use: ['react-hot-loader', 'babel-loader'],
-          // include: path.join(__dirname, 'site'),
           exclude: /node_modules/,
         },
-        // { test: /\.json$/, loader: 'json-loader' },
+        // {variable: 'data'} needed to avoid a 'with' error:
+        // http://stackoverflow.com/questions/18679422/issue-with-with-use-strict-and-underscore-js
+        { test: /\.ejs$/, loader: 'ejs-loader', options: { variable: 'data' }},
         { test: /\.(png|jpg)$/, loader: 'url-loader', options: { limit: 8192 } }, // Inline base64 URLs for <= 8K images
+        { test: /\.mp4$/, loader: 'url-loader', options: { limit: 10000, mimetype: 'video/mp4' }},
         { test: /\.svg$/, loader: 'url-loader', options: { mimetype: 'image/svg+xml' } },
         { test: /\.ttf$/, loader: 'url-loader', options: { mimetype: 'application/octet-stream' } },
         { test: /\.(woff|woff2)$/, loader: 'url-loader', options: { mimetype: 'application/font-woff' } },
       ],
     },
 
-    devtool: 'inline-source-map',
+    target: 'web',
 
-    devServer: {
-      hot: true,
-      // enable HMR on the server
+    // prod: 'source-map' to see full source (and inspect with source-map-explorer)
+    //       consider 'cheap-module-source-map' or null if you want to hide code in prod
+    // dev:  'eval' is fastest add sourcemap to bundle
+    devtool: env.prod ? 'source-map' : 'inline-source-map',
 
-      // webpack-dev-server uses generated index.html from `npm run build`
-      contentBase: 'public',
-    },
+    //--How to bundle?--
+    // Note: evaluates from top-to-bottom (meaning first returned value is significant)
+    plugins: [
+      new webpack.DefinePlugin({
+        __DEV__: env.dev || false,
+        __PROD__: env.prod || false,
+
+        // Note: `process.env.NODE_ENV` is automatically set with `webpack -p`
+        //       which is needed for build React in prod mode
+      }),
+
+      new webpack.ProvidePlugin({
+        // Needed for ejs loader
+        _: 'lodash'
+      })
+    ]
   }
 
-  config.plugins = [
-
-    new webpack.DefinePlugin({
-      __DEV__: env.dev || false,
-      __PROD__: env.prod || false,
-
-      // for production version of React
-      'process.env.NODE_ENV': env.prod ? '"production"': '"development"',
-    }),
-
-    // Automatically `npm install` new imports and add to package.json
-    // new NpmInstallPlugin(),
-
-    // Does not send code with errors to bundle
-    // Especially important for hot loader
-    new webpack.NoEmitOnErrorsPlugin(),
-  ]
-
+  // Settings required for generating the html files
   if (env.buildSite) {
+    config.entry.main='./site/entry.static.js'
+    // Required for StaticSiteGeneratorPlugin
+    config.output.libraryTarget = 'umd'
+
     // Builds the static files
     config.plugins.push( new StaticSiteGeneratorPlugin( 'main', paths, {}, {} ))
   }
-
-  if (env.prod) {
-
+  // Settings required for generating the js bundles
+  else {
     config.plugins.push(
-      new BabiliPlugin(),
-      // new webpack.optimize.UglifyJsPlugin({
-      //   // compress: {
-      //   //   warnings: true,
-      //   // },
-      // }),
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false,
+      new webpack.optimize.CommonsChunkPlugin({
+        // Note: use `names` below if I can ever use hashing.
+        // see https://webpack.js.org/guides/code-splitting-libraries/#manifest-file
+        name: 'vendor',
+        // names: ['vendor', 'manifest'],
+
+        minChunks: Infinity,
       })
     )
-  }
 
-  if (env.dev) {
-    config.plugins.push(
-      new webpack.HotModuleReplacementPlugin(),
-      // enable HMR globally
+    if (env.prod) {
+      config.plugins.push(
+        new webpack.LoaderOptionsPlugin({
+          minimize: true,
+          debug: false,
+        }),
 
-      new webpack.NamedModulesPlugin()
-      // prints more readable module names in the browser console on HMR updates
-    )
+        // Minifier that understands es6 (vs Uglify)
+        new BabiliPlugin(),
+        new CompressionPlugin({
+          asset: "[path].gz[query]",
+          algorithm: "gzip",
+          test: /\.js$|\.html$/,
+          threshold: 10240,
+          minRatio: 0.8
+        })
+      )
+    }
 
-    // disable performance warnings in dev mode
-    // it'll always be too big
-    config.performance = {
-      hints: false,
+    if (env.dev) {
+      config.entry.main = [
+        'react-hot-loader/patch',
+        // activate HMR for React
+
+        'webpack-dev-server/client?http://localhost:8080',
+        // bundle the client for webpack-dev-server
+        // and connect to the provided endpoint
+
+        'webpack/hot/only-dev-server',
+        // bundle the client for hot reloading
+        // only- means to only hot reload for successful updates
+
+        entryFileLocation
+      ]
+
+      config.devServer = {
+        // enable HMR on the server
+        hot: true,
+
+        historyApiFallback: true,
+        noInfo: false,
+        stats: 'minimal',
+
+        // webpack-dev-server uses generated index.html from `npm run build`
+        contentBase: 'public',
+      }
+
+      config.plugins.push(
+        new webpack.HotModuleReplacementPlugin(),
+        // enable HMR globally
+
+        new webpack.NamedModulesPlugin(),
+        // prints more readable module names in the browser console on HMR updates
+
+        // Does not send code with errors to bundle
+        // Especially important for hot loader
+        new webpack.NoEmitOnErrorsPlugin()
+      )
+
+      if (!env.buildJS) {
+        // This is a non-static build, generate an html page for SPA dev
+        config.plugins.push(
+          new HtmlWebpackPlugin({
+            inject: true,
+            template: 'site/html.ejs'
+          })
+        )
+      }
+
+      // disable performance warnings in dev mode
+      // it'll always be too big
+      config.performance = {
+        hints: false,
+      }
     }
   }
 

@@ -1,7 +1,7 @@
 // @flow
 // Imports {{{
 
-import { Link } from 'react-router'
+import Link from 'react-router/lib/Link'
 import React from 'react'
 import Text from 'constelation-Text'
 import View from 'constelation-View'
