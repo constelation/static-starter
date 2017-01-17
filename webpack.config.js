@@ -116,7 +116,10 @@ module.exports = function (env = {}) {
   else {
     config.plugins.push(
       new webpack.optimize.CommonsChunkPlugin({
+        // Note: use `names` below if I can ever use hashing.
+        // see https://webpack.js.org/guides/code-splitting-libraries/#manifest-file
         name: 'vendor',
+        // names: ['vendor', 'manifest'],
 
         minChunks: Infinity,
       })
