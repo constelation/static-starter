@@ -1,4 +1,3 @@
-// @flow
 // Imports {{{
 
 import IndexRoute from 'react-router/lib/IndexRoute'
