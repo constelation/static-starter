@@ -12,6 +12,7 @@
     "source-explorer": "npm run build-js:prod && source-map-explorer public/main.js public/main.js.map",
     "clean": "rimraf public",
     "build-html": "webpack --env.buildSite",
+
     "build-html:dev": "npm run build-html -- --env.dev --progress",
     "build-html:prod": "npm run build-html -- --env.prod -p --progress",
     "build-js:dev": "webpack --env.dev --env.buildJS --progress",
@@ -48,6 +49,7 @@
     "flow-bin": "^0.38.0",
     "flow-typed": "^2.0.0",
     "html-webpack-plugin": "^2.26.0",
+    "husky": "^0.12.0",
     "react-hot-loader": "3.0.0-beta.6",
     "rimraf": "^2.5.2",
     "serve": "^2.4.0",

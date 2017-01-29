@@ -121,7 +121,6 @@ module.exports = function (env = {}) {
     )
 
     if (env.prod) {
-
       // 'source-map' to see full source (and inspect with source-map-explorer)
       // consider 'cheap-module-source-map' or null if you want to hide code in prod
       config.devtool = 'source-map'
