@@ -2,10 +2,10 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
-const BabiliPlugin = require("babili-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
+const BabiliPlugin = require('babili-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 // The routes that should generate *.html files for being served statically
 const paths = [
@@ -80,14 +80,6 @@ module.exports = function (env = {}) {
 
     target: 'web',
 
-    // prod: 'source-map' to see full source (and inspect with source-map-explorer)
-    //       consider 'cheap-module-source-map' or null if you want to hide code in prod
-    // dev:  'eval' is fastest add sourcemap to bundle, but shows ugly code. Use 'cheap-eval-source-map' instead.
-    //
-    // Note: 'cheap-eval-source-map' is not breakpointable atm, so 'source-map' everything for now
-    // devtool: env.prod ? 'source-map' : 'cheap-eval-source-map',
-    devtool: 'source-map',
-
     //--How to bundle?--
     // Note: evaluates from top-to-bottom (meaning first returned value is significant)
     plugins: [
@@ -101,9 +93,9 @@ module.exports = function (env = {}) {
 
       new webpack.ProvidePlugin({
         // Needed for ejs loader
-        _: 'lodash'
-      })
-    ]
+        _: 'lodash',
+      }),
+    ],
   }
 
   // Settings required for generating the html files
@@ -129,6 +121,10 @@ module.exports = function (env = {}) {
     )
 
     if (env.prod) {
+      // 'source-map' to see full source (and inspect with source-map-explorer)
+      // consider 'cheap-module-source-map' or null if you want to hide code in prod
+      config.devtool = 'source-map'
+
       config.plugins.push(
         new webpack.LoaderOptionsPlugin({
           minimize: true,
@@ -138,16 +134,19 @@ module.exports = function (env = {}) {
         // Minifier that understands es6 (vs Uglify)
         new BabiliPlugin(),
         new CompressionPlugin({
-          asset: "[path].gz[query]",
-          algorithm: "gzip",
+          asset: '[path].gz[query]',
+          algorithm: 'gzip',
           test: /\.js$|\.html$/,
           threshold: 10240,
-          minRatio: 0.8
+          minRatio: 0.8,
         })
       )
     }
 
     if (env.dev) {
+      // Include a comment with the request for every dependency
+      config.output.pathinfo = true
+
       config.entry.main = [
         'react-hot-loader/patch',
         // activate HMR for React
@@ -160,13 +159,17 @@ module.exports = function (env = {}) {
         // bundle the client for hot reloading
         // only- means to only hot reload for successful updates
 
-        entryFileLocation
+        entryFileLocation,
       ]
+
+      // Seems to work best in Chrome. See http://erikaybar.name/webpack-source-maps-in-chrome/
+      config.devtool = 'eval-source-map'
 
       config.devServer = {
         // enable HMR on the server
         hot: true,
 
+        // 404s will fallback to index.html
         historyApiFallback: true,
         noInfo: false,
         stats: 'minimal',
@@ -176,11 +179,15 @@ module.exports = function (env = {}) {
       }
 
       config.plugins.push(
-        // enable HMR globally
+        new webpack.LoaderOptionsPlugin({
+          minimize: false,
+          debug: true,
+        }),
         new webpack.HotModuleReplacementPlugin(),
+        // enable HMR globally
 
-        // prints more readable module names in the browser console on HMR updates
         new webpack.NamedModulesPlugin(),
+        // prints more readable module names in the browser console on HMR updates
 
         // Does not send code with errors to bundle
         // Especially important for hot loader
@@ -192,7 +199,7 @@ module.exports = function (env = {}) {
         config.plugins.push(
           new HtmlWebpackPlugin({
             inject: true,
-            template: 'site/html.ejs'
+            template: 'site/html.ejs',
           })
         )
       }
