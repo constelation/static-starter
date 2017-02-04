@@ -4,7 +4,6 @@
     "precommit": "yarn run lint",
     "prepush": "yarn run lint",
     "postcheckout": "yarn",
-    "postpull": "yarn",
     "flow": "flow",
     "lint": "eslint site lib",
     "lint-fix": "eslint --fix site lib",
