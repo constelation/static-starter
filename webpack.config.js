@@ -169,6 +169,9 @@ module.exports = function (env = {}) {
         // enable HMR on the server
         hot: true,
 
+        // Show errors on page, like react-native
+        overlay: true,
+
         // 404s will fallback to index.html
         historyApiFallback: true,
         noInfo: false,
@@ -186,12 +189,12 @@ module.exports = function (env = {}) {
         new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
 
-        new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
+        new webpack.NamedModulesPlugin()
 
         // Does not send code with errors to bundle
         // Especially important for hot loader
-        new webpack.NoEmitOnErrorsPlugin()
+        // new webpack.NoEmitOnErrorsPlugin()
       )
 
       if (!env.buildJS) {
