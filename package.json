@@ -20,7 +20,7 @@
     "prod": "npm run clean && npm run build-html:prod && npm run build-js:prod && npm run server:prod",
     "dev": "npm run clean && npm run build-html:dev && npm run build-js:dev && npm run server:dev",
     "start": "npm run clean && npm run build-js:dev && npm run server:dev",
-    "deploy": "rimraf docs && cp -r public docs"
+    "deploy": "npm run clean && npm run build-html:prod && npm run build-js:prod && rimraf docs && cp -r public docs"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -58,17 +58,14 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
-    "constelation-Animate_": "^6.4.0",
-    "constelation-BackgroundImage": "^5.1.1",
-    "constelation-Button": "^5.1.1",
-    "constelation-Col": "^6.5.0",
-    "constelation-Event_": "^6.5.1",
-    "constelation-Flex": "^6.5.0",
-    "constelation-Row": "^6.5.0",
-    "constelation-Style_": "^6.0.0",
-    "constelation-View": "^6.5.0",
-    "constelation-text": "^7.0.3",
-    "glamor": "^2.20.24",
+    "constelation-animate_": "^12.2.0",
+    "constelation-style_": "^12.2.0",
+    "constelation-text": "^12.2.2",
+    "constelation-view": "^12.2.2",
+    "glamor": "next",
+    "glamor-react": "^3.0.0-1",
+    "glamor-reset": "^3.0.0-1",
+    "glamor-server": "^3.0.0-1",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

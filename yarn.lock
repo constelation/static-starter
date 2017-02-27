@@ -1554,64 +1554,36 @@ constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
 
-constelation-Animate_@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/constelation-Animate_/-/constelation-Animate_-6.4.0.tgz#8cf4c211fd79df9fa1bc8bcd45cdb0ad530f8c5b"
+constelation-animate_@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/constelation-animate_/-/constelation-animate_-12.2.0.tgz#1033c30e814fbaa7fab4b46e4d51ee7d74252ae1"
   dependencies:
+    json5 "^0.5.1"
+    mitt "^1.0.1"
     raf "^3.3.0"
     react-addons-shallow-compare "^15.3.1"
-
-constelation-BackgroundImage@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/constelation-BackgroundImage/-/constelation-BackgroundImage-5.1.1.tgz#5c0ced7c5c4797a4850526fd85d05a3d19325941"
-
-constelation-Button@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/constelation-Button/-/constelation-Button-5.1.1.tgz#042478e8a59e913fd8057f8091af615f2ab3a048"
-
-constelation-Col@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/constelation-Col/-/constelation-Col-6.5.0.tgz#b22454c9396e456be7d59a349447319e1808c836"
-  dependencies:
-    constelation-flex-component-factory "^6.5.0"
-
-constelation-Event_@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/constelation-Event_/-/constelation-Event_-6.5.1.tgz#e2a682e66b6c8ff18ada54198d7f83224da7602f"
-  dependencies:
-    hammerjs "^2.0.8"
-
-constelation-Flex@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/constelation-Flex/-/constelation-Flex-6.5.0.tgz#a82e0e8255c6839f9e36588bc5cded9a25807f2d"
-  dependencies:
-    constelation-flex-component-factory "^6.5.0"
-
-constelation-Row@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/constelation-Row/-/constelation-Row-6.5.0.tgz#6dfcc8204215a7f0cfebf96f2f450dea37ed4839"
-  dependencies:
-    constelation-flex-component-factory "^6.5.0"
-
-constelation-Style_@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/constelation-Style_/-/constelation-Style_-6.0.0.tgz#3b5d1e6d7cbd2f707374795a635fb9ad707c6ce9"
-
-constelation-View@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/constelation-View/-/constelation-View-6.5.0.tgz#0c9cd4b6fa2831af432966d27787870629ea9c6b"
-  dependencies:
-    constelation-flex-component-factory "^6.5.0"
-
-constelation-flex-component-factory@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/constelation-flex-component-factory/-/constelation-flex-component-factory-6.5.0.tgz#a6a5e0e49f6f7003891fbd9423cf45a4337e0485"
-
-constelation-text@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/constelation-text/-/constelation-text-7.0.3.tgz#fa8b953e6b6eb6400d2990703233a19ed0b03112"
   optionalDependencies:
     glamor "^2.17.12"
+
+constelation-style_@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/constelation-style_/-/constelation-style_-12.2.0.tgz#1934ab8a95deced5893411db01eee91439d30f79"
+  optionalDependencies:
+    glamor "^2.17.12"
+
+constelation-text@^12.2.2:
+  version "12.2.2"
+  resolved "https://registry.yarnpkg.com/constelation-text/-/constelation-text-12.2.2.tgz#cc00e90831296594603f402af8df9c017661e611"
+  optionalDependencies:
+    glamor "^2.20.24"
+    glamor-react "^3.0.0-1"
+
+constelation-view@^12.2.2:
+  version "12.2.2"
+  resolved "https://registry.yarnpkg.com/constelation-view/-/constelation-view-12.2.2.tgz#cf93530105e4e148f32ece1ade0b8a88e85fa628"
+  optionalDependencies:
+    glamor "^2.20.24"
+    glamor-react "^3.0.0-1"
 
 content-disposition@0.5.1:
   version "0.5.1"
@@ -2552,9 +2524,37 @@ github@^0.2.4:
   dependencies:
     mime "^1.2.11"
 
+glamor-react@^3.0.0-1:
+  version "3.0.0-1"
+  resolved "https://registry.yarnpkg.com/glamor-react/-/glamor-react-3.0.0-1.tgz#79e96c9735395c0769c447147f68471f996cb37d"
+  dependencies:
+    glamor "^3.0.0-1"
+    object-assign "^4.1.0"
+    react "^15.4.1"
+
+glamor-reset@^3.0.0-1:
+  version "3.0.0-1"
+  resolved "https://registry.yarnpkg.com/glamor-reset/-/glamor-reset-3.0.0-1.tgz#64f2d8ad7a629094662ef7c62f254b0a18d128e3"
+  dependencies:
+    glamor "^3.0.0-1"
+
+glamor-server@^3.0.0-1:
+  version "3.0.0-1"
+  resolved "https://registry.yarnpkg.com/glamor-server/-/glamor-server-3.0.0-1.tgz#5b4186ee3043478a5a66c5611aa0789b94532d6c"
+  dependencies:
+    glamor "^3.0.0-1"
+
 glamor@^2.17.12, glamor@^2.20.24:
   version "2.20.24"
   resolved "https://registry.yarnpkg.com/glamor/-/glamor-2.20.24.tgz#a299af2eec687322634ba38e4a0854d8743d2041"
+  dependencies:
+    babel-runtime "^6.18.0"
+    fbjs "^0.8.8"
+    object-assign "^4.1.0"
+
+glamor@^3.0.0-1, glamor@next:
+  version "3.0.0-1"
+  resolved "https://registry.yarnpkg.com/glamor/-/glamor-3.0.0-1.tgz#60f489e96d96c12620803d3677ac26413cb76a95"
   dependencies:
     babel-runtime "^6.18.0"
     fbjs "^0.8.8"
@@ -2653,10 +2653,6 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6:
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
-
-hammerjs@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
 
 handle-thing@^1.2.4:
   version "1.2.5"
@@ -3193,7 +3189,7 @@ json3@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
 
-json5@^0.5.0:
+json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
@@ -3495,6 +3491,10 @@ minimist@0.0.8, minimist@~0.0.1:
 minimist@1.2.0, minimist@^1.1.3, minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
+
+mitt@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mitt/-/mitt-1.1.0.tgz#22f0d57e2fedd39620a62bb41b7cdd93667d3c41"
 
 mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
@@ -4142,7 +4142,7 @@ react-transform-hmr@^1.0.3:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^15.4.2:
+react@^15.4.1, react@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
   dependencies:

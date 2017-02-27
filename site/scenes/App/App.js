@@ -1,10 +1,10 @@
 // @flow
 // Imports {{{
 
-import 'glamor/reset'
+import 'glamor-reset'
 
 import React from 'react'
-import View from 'constelation-View'
+import View from 'constelation-view'
 
 // }}}
 

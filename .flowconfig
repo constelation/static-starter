@@ -8,9 +8,9 @@
 ./node_modules/constelation-Event_/index.js.flow
 ./node_modules/constelation-Flex/index.js.flow
 ./node_modules/constelation-Row/index.js.flow
-./node_modules/constelation-Style_/index.js.flow
+./node_modules/constelation-style_/index.js.flow
 ./node_modules/constelation-text/index.js.flow
-./node_modules/constelation-View/index.js.flow
+./node_modules/constelation-view/index.js.flow
 
 [options]
 

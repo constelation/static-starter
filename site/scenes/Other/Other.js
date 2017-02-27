@@ -4,7 +4,7 @@
 import Link from 'react-router/lib/Link'
 import React from 'react'
 import Text from 'constelation-text'
-import View from 'constelation-View'
+import View from 'constelation-view'
 
 // }}}
 

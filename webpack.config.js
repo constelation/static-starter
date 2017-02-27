@@ -26,6 +26,8 @@ module.exports = function (env = {}) {
         'react',
         'react-dom',
         'glamor',
+        'glamor-server',
+        'glamor-react',
         'history',
         'lodash/pick',
         'lodash/omit',

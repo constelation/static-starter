@@ -1,7 +1,7 @@
 // @flow
 // Imports {{{
 
-import { renderStatic } from 'glamor/server'
+import { renderStatic } from 'glamor-server'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import RouterContext from 'react-router/lib/RouterContext'
