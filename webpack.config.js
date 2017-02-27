@@ -105,7 +105,10 @@ module.exports = function (env = {}) {
     config.output.libraryTarget = 'umd'
 
     // Builds the static files
-    config.plugins.push( new StaticSiteGeneratorPlugin( 'main', paths, {}, {} ))
+    config.plugins.push( new StaticSiteGeneratorPlugin({
+      entry: 'main',
+      paths: paths,
+    }))
   }
   // Settings required for generating the js bundles
   else {
