@@ -3,8 +3,8 @@
 
 import 'glamor-reset'
 
+import { View } from 'constelation-view'
 import React from 'react'
-import View from 'constelation-view'
 
 // }}}
 
