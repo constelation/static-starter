@@ -7,13 +7,35 @@ module.exports = {
     Video: 'constelation-Video',
     TransitionGroupView: 'constelation-transition-group-view',
     ScrollView: 'constelation-scroll-view',
-    View: 'constelation-view',
+    // View: 'constelation-view',
+    Space: 'constelation-space',
     Style_: 'constelation-style_',
     Event_: 'constelation-event_',
     Animate_: 'constelation-animate_',
     keydown: 'constelation-keydown-decorator',
     // shared
     // TODO: fill in the rest
+  },
+  namedExports: {
+    'mobx-react': [
+      'observer',
+      'inject',
+    ],
+    'constelation-animate_': [
+      'Animate',
+      'emitAnimationEvent',
+    ],
+    'constelation-style_': [
+      'Style',
+    ],
+    'constelation-event_': [
+      'Event',
+    ],
+    'constelation-view': [
+      'View',
+      'Row',
+      'Col',
+    ],
   },
   groupImports: true,
   useRelativePaths({ pathToImportedModule, pathToCurrentFile }) {
@@ -29,8 +51,8 @@ module.exports = {
   },
   moduleNameFormatter({ moduleName, pathToCurrentFile }) {
     // shortcut for aliased paths
-    if (moduleName.startsWith('site/')) {
-      return moduleName.slice(5);
+    if (moduleName.startsWith('src/')) {
+      return moduleName.slice(4);
     }
     // Fall back to the original specifier. It's important that this function
     // always returns a string.

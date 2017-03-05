@@ -14,7 +14,7 @@ const paths = [
   '/notFound',
 ]
 
-const entryFileLocation = './site/entry.client.js'
+const entryFileLocation = './src/entry.client.js'
 
 module.exports = function (env = {}) {
   const config = {
@@ -55,8 +55,8 @@ module.exports = function (env = {}) {
         'node_modules',
       ],
       alias: {
-        shared: 'site/shared',
-        stores: 'site/stores',
+        shared: 'src/shared',
+        stores: 'src/stores',
       },
     },
 
@@ -102,7 +102,7 @@ module.exports = function (env = {}) {
 
   // Settings required for generating the html files
   if (env.buildSite) {
-    config.entry.main='./site/entry.static.js'
+    config.entry.main='./src/entry.static.js'
     // Required for StaticSiteGeneratorPlugin
     config.output.libraryTarget = 'umd'
 
@@ -207,7 +207,7 @@ module.exports = function (env = {}) {
         config.plugins.push(
           new HtmlWebpackPlugin({
             inject: true,
-            template: 'site/html.ejs',
+            template: 'src/html.ejs',
           })
         )
       }

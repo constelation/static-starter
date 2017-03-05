@@ -3,12 +3,10 @@
 
 
 [libs]
-./node_modules/constelation-Animate_/index.js.flow
-./node_modules/constelation-Col/index.js.flow
-./node_modules/constelation-Event_/index.js.flow
-./node_modules/constelation-Flex/index.js.flow
-./node_modules/constelation-Row/index.js.flow
+./node_modules/constelation-animate_/index.js.flow
+./node_modules/constelation-event_/index.js.flow
 ./node_modules/constelation-style_/index.js.flow
+./node_modules/constelation-space/index.js.flow
 ./node_modules/constelation-text/index.js.flow
 ./node_modules/constelation-view/index.js.flow
 
@@ -18,8 +16,8 @@ esproposal.decorators=ignore
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
 
-module.name_mapper='^shared\/\(.*\)$' -> '<PROJECT_ROOT>/site/shared/\1'
-module.name_mapper='^stores\/\(.*\)$' -> '<PROJECT_ROOT>/site/stores/\1'
+module.name_mapper='^shared\/\(.*\)$' -> '<PROJECT_ROOT>/src/shared/\1'
+module.name_mapper='^stores\/\(.*\)$' -> '<PROJECT_ROOT>/src/stores/\1'
 
 suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

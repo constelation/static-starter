@@ -48,7 +48,7 @@ __Please consult the [React Playbook](https://github.com/kylpo/react-playbook)__
 │   ├── /images/
 │   └── /videos/
 |
-├── /site                       # Your site-specific source code of the application
+├── /src                       # Your site-specific source code of the application
 │   ├── /scenes/                # Components that are handled by a Navigator. Same as pages, views, etc for the app.
 │   |   ├── /App/               # Root scene
 │   ├── /shared/                # Shared components used in 2+ scenes

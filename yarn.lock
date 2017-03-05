@@ -1554,9 +1554,9 @@ constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
 
-constelation-animate_@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/constelation-animate_/-/constelation-animate_-12.2.0.tgz#1033c30e814fbaa7fab4b46e4d51ee7d74252ae1"
+constelation-animate_@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/constelation-animate_/-/constelation-animate_-12.3.0.tgz#63ebaad96866ac29eee298985f0f6f863cdef0c9"
   dependencies:
     json5 "^0.5.1"
     mitt "^1.0.1"
@@ -1565,22 +1565,22 @@ constelation-animate_@^12.2.0:
   optionalDependencies:
     glamor "^2.17.12"
 
-constelation-style_@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/constelation-style_/-/constelation-style_-12.2.0.tgz#1934ab8a95deced5893411db01eee91439d30f79"
+constelation-style_@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/constelation-style_/-/constelation-style_-12.3.0.tgz#011d3c4b9a9632acfd828e7d4096f12d6d91d242"
   optionalDependencies:
     glamor "^2.17.12"
 
-constelation-text@^12.2.2:
-  version "12.2.2"
-  resolved "https://registry.yarnpkg.com/constelation-text/-/constelation-text-12.2.2.tgz#cc00e90831296594603f402af8df9c017661e611"
+constelation-text@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/constelation-text/-/constelation-text-12.3.0.tgz#5ca33aa7cb7969a431cd990ddb3a9624c341baf5"
   optionalDependencies:
     glamor "^2.20.24"
     glamor-react "^3.0.0-1"
 
-constelation-view@^12.2.2:
-  version "12.2.2"
-  resolved "https://registry.yarnpkg.com/constelation-view/-/constelation-view-12.2.2.tgz#cf93530105e4e148f32ece1ade0b8a88e85fa628"
+constelation-view@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-view/-/constelation-view-13.0.0.tgz#df502226c1ea71356d1fc211c61452b2f69e93ab"
   optionalDependencies:
     glamor "^2.20.24"
     glamor-react "^3.0.0-1"
@@ -2077,9 +2077,9 @@ eslint-plugin-react@^6.10.0:
     jsx-ast-utils "^1.3.4"
     object.assign "^4.0.4"
 
-eslint@^3.16.1:
-  version "3.16.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.16.1.tgz#9bc31fc7341692cf772e80607508f67d711c5609"
+eslint@^3.17.0:
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.17.0.tgz#e2704b09c5bae9fb49ee8bafeea3832c7257d498"
   dependencies:
     babel-code-frame "^6.16.0"
     chalk "^1.1.3"
@@ -2830,9 +2830,9 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
-husky@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-0.13.1.tgz#11efc6fc10e0ec4e789776f6582be37d71ba4ccf"
+husky@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-0.13.2.tgz#9dcf212f88e61dba36f17be1a202ed61ff6c0661"
   dependencies:
     chalk "^1.1.3"
     find-parent-dir "^0.3.0"
