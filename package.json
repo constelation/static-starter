@@ -3,7 +3,6 @@
   "scripts": {
     "precommit": "yarn run lint",
     "prepush": "yarn run lint",
-    "postcheckout": "yarn",
     "flow": "flow",
     "lint": "eslint src lib",
     "lint-fix": "eslint --fix src lib",
