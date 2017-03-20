@@ -6,15 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const BabiliPlugin = require('babili-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 // The routes that should generate *.html files for being served statically
-const paths = [
-  '/',
-  '/other',
-  '/notFound',
-]
-
 const entryFileLocation = './src/entry.client.js'
 
 module.exports = function (env = {}) {
@@ -110,7 +104,16 @@ module.exports = function (env = {}) {
     // Builds the static files
     config.plugins.push( new StaticSiteGeneratorPlugin({
       entry: 'main',
-      paths: paths,
+
+      // Rather than manually providing a list of paths, you can use the crawl option to automatically crawl your site
+      crawl: true,
+
+      // Note that this can be used in conjunction with the paths option to allow multiple crawler entry points:
+      // paths: [
+      //   '/', // required entry point for crawl if adding explicit paths
+      //   '/notFound',
+      //   // '/other',
+      // ],
     }))
   }
   // Settings required for generating the js bundles
