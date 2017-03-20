@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const BabiliPlugin = require('babili-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 
 // The routes that should generate *.html files for being served statically
 const paths = [
@@ -122,7 +123,8 @@ module.exports = function (env = {}) {
         // names: ['vendor', 'manifest'],
 
         minChunks: Infinity,
-      })
+      }),
+      new DuplicatePackageCheckerPlugin()
     )
 
     if (env.prod) {
