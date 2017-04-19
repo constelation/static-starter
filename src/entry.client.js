@@ -18,15 +18,18 @@ import routes from './scenes/index.client'
 rehydrate(window._glam)
 
 // match required for async rendering + SSR. Otherwise, there would be a flash of paint
-match({ history: browserHistory, routes }, (error, redirectLocation, renderProps) => {
-  ReactDOM.render(
-    <Router
-      {...renderProps}
-      render={applyRouterMiddleware(useScroll())}
-    />,
-    document.getElementById('root')
-  )
-})
+match(
+  { history: browserHistory, routes },
+  (error, redirectLocation, renderProps) => {
+    ReactDOM.render(
+      <Router
+        {...renderProps}
+        render={applyRouterMiddleware(useScroll())}
+      />,
+      document.getElementById('root'),
+    )
+  },
+)
 
 // Hot Module Replacement API
 if (module.hot) {
@@ -38,8 +41,14 @@ if (module.hot) {
    */
   const orgError = console.error // eslint-disable-line no-console
   //$FlowIgnore
-  console.error = (...args) => { // eslint-disable-line no-console
-    if (args && args.length === 1 && (typeof args[0] === 'string') && args[0].indexOf('You cannot change <Router routes>;') > -1) {
+  console.error = (...args) => {
+    // eslint-disable-line no-console
+    if (
+      args &&
+      args.length === 1 &&
+      typeof args[0] === 'string' &&
+      args[0].indexOf('You cannot change <Router routes>;') > -1
+    ) {
       // React route changed
     }
     else {
@@ -48,3 +57,4 @@ if (module.hot) {
     }
   }
 }
+

@@ -30,6 +30,7 @@
         "react-hot-loader/babel",
 
         // adds file and line # to components
+        // helpful for error stack traces
         "transform-react-jsx-source",
       ]
     },

@@ -12,9 +12,7 @@ import Text from 'constelation-text'
 export class AppBar extends React.Component {
   render() {
     return (
-      <Row
-        alignHorizontal='left'
-      >
+      <Row alignHorizontal='left'>
         <img src='http://www.fillmurray.com/64/64' />
       </Row>
     )
@@ -24,9 +22,7 @@ export class AppBar extends React.Component {
 export class TabBar extends React.Component {
   render() {
     return (
-      <Row
-        alignHorizontal='right'
-      >
+      <Row alignHorizontal='right'>
         <Text>One</Text>
         <Text>Two</Text>
         <Text>Three</Text>
@@ -49,3 +45,4 @@ export default class App extends React.Component {
     )
   }
 }
+

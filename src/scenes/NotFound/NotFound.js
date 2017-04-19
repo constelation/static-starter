@@ -9,9 +9,10 @@ import Text from 'constelation-text'
 export default class NotFound extends React.Component {
   render() {
     return (
-      <Text >
+      <Text>
         NotFound
       </Text>
     )
   }
 }
+

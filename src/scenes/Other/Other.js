@@ -19,3 +19,4 @@ export default class Other extends React.Component {
     )
   }
 }
+

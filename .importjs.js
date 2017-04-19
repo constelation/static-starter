@@ -29,12 +29,16 @@ module.exports = {
       'Style',
     ],
     'constelation-event_': [
+      // 'Event_',
       'Event',
     ],
     'constelation-view': [
       'View',
       'Row',
       'Col',
+    ],
+    'decko': [
+      'bind',
     ],
   },
   groupImports: true,
