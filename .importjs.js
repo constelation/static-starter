@@ -20,6 +20,7 @@ module.exports = {
     'mobx-react': [
       'observer',
       'inject',
+      'Provider',
     ],
     'constelation-animate_': [
       'Animate',

@@ -3,18 +3,30 @@
 
 import { Col, View } from 'constelation-view'
 import { bind } from 'decko'
+import { inject, observer } from 'mobx-react'
 import Event_ from 'constelation-event_'
 import Link from 'react-router/lib/Link'
 import React from 'react'
 import Style_ from 'constelation-style_'
 import Text from 'constelation-text'
 
+import Dummy from './_/Dummy'
+
 // }}}
 
+@inject('AppModal')
+@observer
 export default class Home extends React.Component {
-  @bind
-  handleOpenModal() {
-    console.log('hi');
+  @bind handleOpenModal() {
+    this.props.AppModal.showModal(Dummy, { onClick: this.handleCloseModal })
+  }
+
+  @bind handleCloseModal() {
+    this.props.AppModal.hideModal()
+  }
+
+  componentDidMount() {
+    setTimeout(() => {this.handleOpenModal()}, 1000)
   }
 
   render() {
@@ -24,6 +36,7 @@ export default class Home extends React.Component {
         grow
       >
         <Text size={20}>Home</Text>
+
         <Link to='other'>Other</Link>
 
         <Event_ onClick={this.handleOpenModal}>
@@ -33,8 +46,8 @@ export default class Home extends React.Component {
             </View>
           </Style_>
         </Event_>
-
       </Col>
     )
   }
 }
+

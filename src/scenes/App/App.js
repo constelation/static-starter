@@ -4,10 +4,33 @@
 import 'glamor-reset'
 
 import { Col, Row } from 'constelation-view'
+import { Provider } from 'mobx-react'
 import React from 'react'
 import Text from 'constelation-text'
+import mobx from 'mobx'
+
+import AppModal from 'stores/AppModal'
+
+import Modal from './_/Modal'
 
 // }}}
+
+// -- MobX --
+// throw an exception on any attempt to modify MobX state outside an action
+mobx.useStrict(true)
+
+// log all mobx actions when in development mode
+if (__DEV__) {
+  mobx.spy(ev => {
+    if (ev.type === 'action') {
+      console.log(ev.name)
+    }
+  })
+}
+
+const stores = {
+  AppModal: new AppModal(),
+}
 
 export class AppBar extends React.Component {
   render() {
@@ -34,15 +57,20 @@ export class TabBar extends React.Component {
 export default class App extends React.Component {
   render() {
     return (
-      <Col
-        fit
-        alignVertical='top'
-      >
-        <AppBar />
-        <TabBar />
-        {this.props.children}
-      </Col>
+      <Provider {...stores}>
+        <Col
+          fit
+          alignVertical='top'
+        >
+          <AppBar />
+          <TabBar />
+
+          {this.props.children}
+
+          <Modal />
+
+        </Col>
+      </Provider>
     )
   }
 }
-
