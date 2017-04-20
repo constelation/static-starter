@@ -126,8 +126,8 @@ module.exports = function (env = {}) {
         // names: ['vendor', 'manifest'],
 
         minChunks: Infinity,
-      }),
-      new DuplicatePackageCheckerPlugin()
+      })
+      // new DuplicatePackageCheckerPlugin()
     )
 
     if (env.prod) {

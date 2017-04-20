@@ -9,7 +9,7 @@ import App from './App'
 // }}}
 
 function loadRoute(cb) {
-  return (module) => cb(null, module.default)
+  return module => cb(null, module.default)
 }
 
 function errorLoading(err) {
@@ -29,10 +29,17 @@ const NotFound = (location, cb) => {
 // Note: be sure to update webpack.config.js's paths array with route changes
 export default (
   <Route component={App}>
-    <Route path='/' >
+    <Route path='/'>
       <IndexRoute getComponent={Home} />
-      <Route path='other' getComponent={Other} />
+      <Route
+        path='other'
+        getComponent={Other}
+      />
     </Route>
-    <Route path='*' getComponent={NotFound} />
+    <Route
+      path='*'
+      getComponent={NotFound}
+    />
   </Route>
 )
+

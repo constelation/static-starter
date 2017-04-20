@@ -20,17 +20,21 @@ export default (locals: Object, callback: Function) => {
   const location = history.createLocation(locals.path)
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
-    const { html, css, ids } = renderStatic(() => ReactDOMServer.renderToStaticMarkup(
-      <RouterContext {...renderProps} />
-    ))
+    const { html, css, ids } = renderStatic(() =>
+      ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />),
+    )
 
-    callback(null, htmlTemplate({
-      css,
-      html,
-      title: 'Constelation',
-      glamorIds: JSON.stringify(ids),
-      js: [locals.assets.vendor, locals.assets.main],
-      // js: Object.keys(locals.assets).map(key => locals.assets[key]),
-    }))
+    callback(
+      null,
+      htmlTemplate({
+        css,
+        html,
+        title: 'Constelation',
+        glamorIds: JSON.stringify(ids),
+        js: [locals.assets.vendor, locals.assets.main],
+        // js: Object.keys(locals.assets).map(key => locals.assets[key]),
+      }),
+    )
   })
 }
+
