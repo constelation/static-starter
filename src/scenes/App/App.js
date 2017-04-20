@@ -20,13 +20,18 @@ import Modal from './_/Modal'
 mobx.useStrict(true)
 
 // log all mobx actions when in development mode
-if (__DEV__) {
+if (process.env.NODE_ENV !== 'production') {
   mobx.spy(ev => {
     if (ev.type === 'action') {
       console.log(ev.name)
     }
   })
 }
+
+// if (process.env.NODE_ENV !== 'production') {
+//   const {whyDidYouUpdate} = require('why-did-you-update')
+//   whyDidYouUpdate(React)
+// }
 
 const stores = {
   AppModal: new AppModal(),

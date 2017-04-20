@@ -11,6 +11,7 @@ import Style_ from 'constelation-style_'
 import Text from 'constelation-text'
 
 import Dummy from './_/Dummy'
+import DummyModal from './_/DummyModal'
 
 // }}}
 
@@ -18,16 +19,17 @@ import Dummy from './_/Dummy'
 @observer
 export default class Home extends React.Component {
   @bind handleOpenModal() {
-    this.props.AppModal.showModal(Dummy, { onClick: this.handleCloseModal })
+    // this.props.AppModal.showModal(Dummy, { onClick: this.handleCloseModal })
+    this.props.AppModal.showModal(DummyModal, { onClick: this.handleCloseModal })
   }
 
   @bind handleCloseModal() {
     this.props.AppModal.hideModal()
   }
 
-  componentDidMount() {
-    setTimeout(() => {this.handleOpenModal()}, 1000)
-  }
+  // componentDidMount() {
+  //   setTimeout(() => {this.handleOpenModal()}, 1000)
+  // }
 
   render() {
     return (
