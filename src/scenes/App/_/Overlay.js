@@ -9,8 +9,8 @@ import TransitionGroup from 'react-transition-group/TransitionGroup'
 // }}}
 
 function FirstChild(props) {
-  const childrenArray = React.Children.toArray(props.children);
-  return childrenArray[0] || null;
+  const childrenArray = React.Children.toArray(props.children)
+  return childrenArray[0] || null
 }
 
 @inject('AppOverlay')
@@ -25,8 +25,18 @@ export default class Overlay extends React.Component {
 
     return (
       <TransitionGroup component={FirstChild}>
-        {Component !== null ? <Component onClose={this.handleClose}{...passProps} /> : null}
+        {
+          Component !== null
+            ? (
+              <Component
+                onClose={this.handleClose}
+                {...passProps}
+              />
+            )
+            : null
+        }
       </TransitionGroup>
     )
   }
 }
+

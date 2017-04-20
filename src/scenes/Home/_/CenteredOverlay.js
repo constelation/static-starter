@@ -1,7 +1,6 @@
 // @flow
 // Imports {{{
 import { View } from 'constelation-view'
-import Animate_ from 'constelation-animate_'
 import Event_ from 'constelation-event_'
 import React from 'react'
 import Style_ from 'constelation-style_'
@@ -9,21 +8,22 @@ import Text from 'constelation-text'
 
 // }}}
 
-export default class Dummy extends React.PureComponent {
+export default class CenteredOverlay extends React.PureComponent {
+  node: HTMLElement
+
   state = {
-    opacity: 0,
+    isVisible: false,
   }
 
-  componentDidEnter(cb) {
+  componentDidEnter() {
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        this.setState({ opacity: 1 })
+        this.setState({ isVisible: true })
       })
     })
-
   }
 
-  componentWillLeave(cb) {
+  componentWillLeave(cb: Function) {
     this.node.addEventListener(
       'transitionend',
       () => {
@@ -32,26 +32,29 @@ export default class Dummy extends React.PureComponent {
       { once: true },
     )
 
-    this.setState({ opacity: 0 })
+    this.setState({ isVisible: false })
+  }
+
+  setRef = (node : HTMLElement) => {
+    this.node = node
   }
 
   render() {
     return (
       <Event_ onClick={this.props.onClose}>
         <Style_
-          opacity={this.state.opacity}
-          transition='opacity 1000ms ease-in-out'
+          backgroundColor='red'
+          translateY={this.state.isVisible ? '0' : '100vh'}
+          transition='transform 300ms ease-in-out'
         >
           <View
-            grow
-            refNode={node => {this.node = node}}
-            position='fixed'
-            top={0}
-            right={0}
-            bottom={0}
-            left={0}
+            refNode={this.setRef}
             zIndex={2}
-            style={{ backgroundColor: 'red' }}
+            position='fixed'
+            top={50}
+            right={50}
+            bottom={50}
+            left={50}
           >
             <Text>Oh HAI!</Text>
           </View>

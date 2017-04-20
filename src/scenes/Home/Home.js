@@ -1,6 +1,5 @@
 // @flow
 // Imports {{{
-
 import { Col, View } from 'constelation-view'
 import { bind } from 'decko'
 import { inject, observer } from 'mobx-react'
@@ -10,8 +9,8 @@ import React from 'react'
 import Style_ from 'constelation-style_'
 import Text from 'constelation-text'
 
-import Dummy from './_/Dummy'
-import DummyModal from './_/DummyModal'
+import CenteredOverlay from './_/CenteredOverlay'
+import FullOverlay from './_/FullOverlay'
 
 // }}}
 
@@ -19,18 +18,18 @@ import DummyModal from './_/DummyModal'
 @observer
 export default class Home extends React.Component {
   @bind handleOpenFadeOverlay() {
-    this.props.AppOverlay.show(Dummy)
+    this.props.AppOverlay.show(FullOverlay)
   }
 
   @bind handleOpenModal() {
-    this.props.AppOverlay.show(DummyModal, {
+    this.props.AppOverlay.show(CenteredOverlay, {
       opacityColor: 'white',
       opacity: 0.5,
     })
   }
 
   @bind handleOpenModalDark() {
-    this.props.AppOverlay.showModal(DummyModal, {
+    this.props.AppOverlay.showModal(CenteredOverlay, {
       opacityColor: '#111',
       opacity: 0.7,
     })
@@ -77,4 +76,3 @@ export default class Home extends React.Component {
     )
   }
 }
-

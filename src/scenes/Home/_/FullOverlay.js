@@ -9,7 +9,7 @@ import Text from 'constelation-text'
 
 // }}}
 
-export default class DummyModal extends React.PureComponent {
+export default class FullOverlay extends React.PureComponent {
   node: HTMLElement
 
   state = {
@@ -36,7 +36,7 @@ export default class DummyModal extends React.PureComponent {
     this.setState({ isVisible: false })
   }
 
-  setRef = node => {
+  setRef = (node : HTMLElement) => {
     this.node = node
   }
 
@@ -45,17 +45,18 @@ export default class DummyModal extends React.PureComponent {
       <Event_ onClick={this.props.onClose}>
         <Style_
           backgroundColor='red'
-          translateY={this.state.isVisible ? '0' : '100vh'}
-          transition='transform 300ms ease-in-out'
+          opacity={this.state.isVisible ? 1 : 0}
+          transition='opacity 1000ms ease-in-out'
         >
           <View
+            grow
             refNode={this.setRef}
-            zIndex={2}
             position='fixed'
-            top={50}
-            right={50}
-            bottom={50}
-            left={50}
+            top={0}
+            right={0}
+            bottom={0}
+            left={0}
+            zIndex={2}
           >
             <Text>Oh HAI!</Text>
           </View>
@@ -64,4 +65,3 @@ export default class DummyModal extends React.PureComponent {
     )
   }
 }
-
