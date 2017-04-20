@@ -10,11 +10,13 @@ import Text from 'constelation-text'
 // }}}
 
 export default class DummyModal extends React.PureComponent {
+  node: HTMLElement
+
   state = {
     isVisible: false,
   }
 
-  componentDidEnter(cb) {
+  componentDidEnter() {
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
         this.setState({ isVisible: true })
@@ -22,7 +24,7 @@ export default class DummyModal extends React.PureComponent {
     })
   }
 
-  componentWillLeave(cb) {
+  componentWillLeave(cb: Function) {
     this.node.addEventListener(
       'transitionend',
       () => {
@@ -40,39 +42,25 @@ export default class DummyModal extends React.PureComponent {
 
   render() {
     return (
-      <Style_
-        opacity={this.state.isVisible ? 0.5 : 0}
-        transition='opacity 300ms ease-in-out'
-      >
-        <View
-          position='fixed'
-          top={0}
-          right={0}
-          bottom={0}
-          left={0}
-          zIndex={1}
+      <Event_ onClick={this.props.onClose}>
+        <Style_
+          backgroundColor='red'
+          translateY={this.state.isVisible ? '0' : '100vh'}
+          transition='transform 300ms ease-in-out'
         >
-          <Event_ onClick={this.props.onClick}>
-            <Style_
-              backgroundColor='red'
-              translateY={this.state.isVisible ? '0' : '100vh'}
-              transition='transform 300ms ease-in-out'
-            >
-              <View
-                refNode={this.setRef}
-                position='fixed'
-                top={50}
-                right={50}
-                bottom={50}
-                left={50}
-                zIndex={2}
-              >
-                <Text>Oh HAI!</Text>
-              </View>
-            </Style_>
-          </Event_>
-        </View>
-      </Style_>
+          <View
+            refNode={this.setRef}
+            zIndex={2}
+            position='fixed'
+            top={50}
+            right={50}
+            bottom={50}
+            left={50}
+          >
+            <Text>Oh HAI!</Text>
+          </View>
+        </Style_>
+      </Event_>
     )
   }
 }

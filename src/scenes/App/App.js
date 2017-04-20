@@ -9,9 +9,10 @@ import React from 'react'
 import Text from 'constelation-text'
 import mobx from 'mobx'
 
-import AppModal from 'stores/AppModal'
+import AppOverlay from 'stores/AppOverlay'
 
-import Modal from './_/Modal'
+import Overlay from './_/Overlay'
+import OpacityOverlay from './_/OpacityOverlay'
 
 // }}}
 
@@ -34,7 +35,7 @@ if (process.env.NODE_ENV !== 'production') {
 // }
 
 const stores = {
-  AppModal: new AppModal(),
+  AppOverlay: new AppOverlay(),
 }
 
 export class AppBar extends React.Component {
@@ -72,10 +73,12 @@ export default class App extends React.Component {
 
           {this.props.children}
 
-          <Modal />
+          <OpacityOverlay />
+          <Overlay />
 
         </Col>
       </Provider>
     )
   }
 }
+

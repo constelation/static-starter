@@ -15,21 +15,30 @@ import DummyModal from './_/DummyModal'
 
 // }}}
 
-@inject('AppModal')
+@inject('AppOverlay')
 @observer
 export default class Home extends React.Component {
+  @bind handleOpenFadeOverlay() {
+    this.props.AppOverlay.show(Dummy)
+  }
+
   @bind handleOpenModal() {
-    // this.props.AppModal.showModal(Dummy, { onClick: this.handleCloseModal })
-    this.props.AppModal.showModal(DummyModal, { onClick: this.handleCloseModal })
+    this.props.AppOverlay.show(DummyModal, {
+      opacityColor: 'white',
+      opacity: 0.5,
+    })
+  }
+
+  @bind handleOpenModalDark() {
+    this.props.AppOverlay.showModal(DummyModal, {
+      opacityColor: '#111',
+      opacity: 0.7,
+    })
   }
 
   @bind handleCloseModal() {
-    this.props.AppModal.hideModal()
+    this.props.AppOverlay.hide()
   }
-
-  // componentDidMount() {
-  //   setTimeout(() => {this.handleOpenModal()}, 1000)
-  // }
 
   render() {
     return (
@@ -41,10 +50,26 @@ export default class Home extends React.Component {
 
         <Link to='other'>Other</Link>
 
+        <Event_ onClick={this.handleOpenFadeOverlay}>
+          <Style_ border='1px solid #111'>
+            <View padding={16}>
+              <Text size={16}>Open Fade Overlay</Text>
+            </View>
+          </Style_>
+        </Event_>
+
         <Event_ onClick={this.handleOpenModal}>
           <Style_ border='1px solid #111'>
             <View padding={16}>
-              <Text size={16}>Open Modal</Text>
+              <Text size={16}>Open Overlay Light Outer</Text>
+            </View>
+          </Style_>
+        </Event_>
+
+        <Event_ onClick={this.handleOpenModalDark}>
+          <Style_ border='1px solid #111'>
+            <View padding={16}>
+              <Text size={16}>Open Modal Dark Outer</Text>
             </View>
           </Style_>
         </Event_>
