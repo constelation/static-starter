@@ -1,7 +1,6 @@
 // @flow
 // Imports {{{
 import { View } from 'constelation-view'
-import Animate_ from 'constelation-animate_'
 import Event_ from 'constelation-event_'
 import React from 'react'
 import Style_ from 'constelation-style_'
