@@ -49,14 +49,13 @@ export default class FullOverlay extends React.PureComponent {
           transition='opacity 1000ms ease-in-out'
         >
           <View
-            grow
             refNode={this.setRef}
+            zIndex={2}
             position='fixed'
             top={0}
             right={0}
             bottom={0}
             left={0}
-            zIndex={2}
           >
             <Text>Oh HAI!</Text>
           </View>

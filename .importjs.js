@@ -26,6 +26,13 @@ module.exports = {
       'Animate',
       'emitAnimationEvent',
     ],
+    'constelation-dom': [
+      'disableScroll',
+      'enableScroll',
+      'getElementOffsetTop',
+      'getScrollTop',
+      'scrollToY'
+    ],
     'constelation-style_': [
       'Style',
     ],

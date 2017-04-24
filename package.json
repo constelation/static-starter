@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "constelation-animate_": "^14.0.0",
+    "constelation-dom": "^1.0.0",
     "constelation-event_": "^14.0.0",
     "constelation-style_": "^14.0.0",
     "constelation-text": "^12.3.0",

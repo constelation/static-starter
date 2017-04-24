@@ -1555,6 +1555,10 @@ constelation-animate_@^14.0.0:
   optionalDependencies:
     glamor "^2.17.12"
 
+constelation-dom@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/constelation-dom/-/constelation-dom-1.0.0.tgz#06ab6613da84b22d0b1f89b3978881bbccf295d8"
+
 constelation-event_@^14.0.0:
   version "14.0.0"
   resolved "https://registry.yarnpkg.com/constelation-event_/-/constelation-event_-14.0.0.tgz#1f24dbb8cb1eabe7ad8fe7c8cb3ad3ce3fff22d9"
