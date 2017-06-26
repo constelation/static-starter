@@ -15,6 +15,8 @@ export default class Other extends React.Component {
         <Text>Other</Text>
 
         <Link to='/'>Home</Link>
+
+        <img src='http://www.fillmurray.com/64/64' />
       </Col>
     )
   }
