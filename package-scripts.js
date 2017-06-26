@@ -12,8 +12,8 @@ module.exports = {
     clean: 'rimraf public',
     buildHtml: {
       default: 'webpack --env.buildSite',
-      dev: 'nps buildHtml -- --env.dev --progress',
-      prod: 'nps buildHtml -- --env.prod -p --progress',
+      dev: 'nps "buildHtml --env.dev --progress"',
+      prod: 'nps "buildHtml --env.prod -p --progress"',
     },
     buildJs: {
       dev: 'webpack --env.dev --env.buildJS --progress',
