@@ -1,6 +1,6 @@
 // @flow
 // Imports {{{
-import { Col, View } from 'constelation-view'
+import { View } from 'constelation-view'
 import { bind } from 'decko'
 import { inject, observer } from 'mobx-react'
 import Event_ from 'constelation-event_'
@@ -8,11 +8,41 @@ import Link from 'react-router/lib/Link'
 import React from 'react'
 import Style_ from 'constelation-style_'
 import Text from 'constelation-text'
+import { css, styled } from 'emotion'
 
 import CenteredOverlay from './_/CenteredOverlay'
 import FullOverlay from './_/FullOverlay'
 
 // }}}
+
+
+const col = css`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-shrink: 0;
+  align-items: stretch;
+`
+
+const flex = css`
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  align-items: stretch;
+`
+
+const row = css`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-shrink: 0;
+  align-items: stretch;
+`
+
+const center = css`
+  align-items: center;
+  justify-content: center;
+`
 
 @inject('AppOverlay')
 @observer
@@ -41,38 +71,55 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <Col
-        center
-        grow
+      <div
+        css={`
+          composes: ${col} ${center};
+          flex-grow: 1;
+        `}
       >
-        <Text size={20}>Home</Text>
+        <span
+          css={`
+            font-size: 20px;
+          `}
+        >
+          Home
+        </span>
 
         <Link to='other'>Other</Link>
 
-        <Event_ onClick={this.handleOpenFadeOverlay}>
-          <Style_ border='1px solid #111'>
-            <View padding={16}>
-              <Text size={16}>Open Fade Overlay</Text>
-            </View>
-          </Style_>
-        </Event_>
+        <span
+          onClick={this.handleOpenFadeOverlay}
+          css={`
+            font-size: 16px;
+            padding: 16px;
+            border: 1px solid #111;
+          `}
+        >
+          Open Fade Overlay
+        </span>
 
-        <Event_ onClick={this.handleOpenModal}>
-          <Style_ border='1px solid #111'>
-            <View padding={16}>
-              <Text size={16}>Open Overlay Light Outer</Text>
-            </View>
-          </Style_>
-        </Event_>
+        <span
+          onClick={this.handleOpenModal}
+          css={`
+            font-size: 16px;
+            padding: 16px;
+            border: 1px solid #111;
+          `}
+        >
+          Open Overlay Light Outer
+        </span>
 
-        <Event_ onClick={this.handleOpenModalDark}>
-          <Style_ border='1px solid #111'>
-            <View padding={16}>
-              <Text size={16}>Open Modal Dark Outer</Text>
-            </View>
-          </Style_>
-        </Event_>
-      </Col>
+        <span
+          onClick={this.handleOpenModalDark}
+          css={`
+            font-size: 16px;
+            padding: 16px;
+            border: 1px solid #111;
+          `}
+        >
+          Open Modal Dark Outer
+        </span>
+      </div>
     )
   }
 }

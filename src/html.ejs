@@ -34,6 +34,9 @@
         height: 100%;
       }
     </style>
+    <% if (data.style) { %>
+     <link rel="stylesheet" type="text/css" href="styles.css">
+    <% } %>
   </head>
   <body>
     <div id="root">
@@ -44,7 +47,7 @@
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js" defer async></script>
     <script>
-      window._glam = <%= data.glamorIds || '[]' %>
+      window._styleIds = <%= data.styleIds || '[]' %>
     </script>
     <% data.js && data.js.forEach(function(file){ %>
         <script src="<%= file %>?t=<%= new Date().getTime() %>" charset="utf-8"></script>

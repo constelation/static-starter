@@ -3,6 +3,9 @@
 // Preset ordering is reversed (last to first).
 {
   "plugins": [
+    ["emotion/babel", { "inline": true }],
+    /* "emotion/babel", */
+
     // able to use `class` instead of `className` and `for` instead of `htmlFor`
     "react-html-attrs",
 
@@ -10,7 +13,7 @@
     "transform-decorators-legacy",
 
     // handle do expressions (currently stage-0)
-    "transform-do-expressions",
+    /* "transform-do-expressions", */
   ],
   "presets": [
     ["es2015",
