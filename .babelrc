@@ -3,8 +3,8 @@
 // Preset ordering is reversed (last to first).
 {
   "plugins": [
-    ["emotion/babel", { "inline": true }],
-    /* "emotion/babel", */
+    /* ["emotion/babel", { "inline": true }], */
+    "emotion/babel",
 
     // able to use `class` instead of `className` and `for` instead of `htmlFor`
     "react-html-attrs",

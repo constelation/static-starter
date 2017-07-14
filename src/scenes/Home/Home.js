@@ -70,11 +70,19 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const grow = 1
+
     return (
       <div
+        // composes: ${col} ${center};
         css={`
-          composes: ${col} ${center};
-          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          flex-shrink: 0;
+          align-items: center;
+          justify-content: center;
+          flex-grow: ${grow};
         `}
       >
         <span

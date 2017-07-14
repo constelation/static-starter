@@ -42,7 +42,7 @@ export class AppBar extends React.Component {
   render() {
     return (
       <Row alignHorizontal='left'>
-        <img src='http://www.fillmurray.com/64/64' />
+        {/* <img src='http://www.fillmurray.com/64/64' /> */}
       </Row>
     )
   }
@@ -68,8 +68,8 @@ export default class App extends React.Component {
           fit
           alignVertical='top'
         >
-          <AppBar />
-          <TabBar />
+          {/* <AppBar /> */}
+          {/* <TabBar /> */}
 
           {this.props.children}
 

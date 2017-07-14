@@ -28,7 +28,7 @@ export default (locals: Object, callback: Function) => {
         css,
         html,
         styleIds: JSON.stringify(ids),
-        // style: true,
+        style: true,
         title: 'Constelation',
         js: [locals.assets.vendor, locals.assets.main],
         // js: Object.keys(locals.assets).map(key => locals.assets[key]),
