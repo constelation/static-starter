@@ -17,6 +17,7 @@ import FullOverlay from './_/FullOverlay'
 
 
 const col = css`
+  name: COL;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -44,9 +45,24 @@ const center = css`
   justify-content: center;
 `
 
+const BOX = css`
+  height: 200px;
+  width: 400px;
+  backgroundColor: red;
+`
+
+const BOX_UPDATED = css`
+  composes: ${BOX};
+  backgroundColor: green;
+`
+
 @inject('AppOverlay')
 @observer
 export default class Home extends React.Component {
+  state = {
+    isUpdated: false,
+  }
+
   @bind handleOpenFadeOverlay() {
     this.props.AppOverlay.show(FullOverlay)
   }
@@ -69,22 +85,41 @@ export default class Home extends React.Component {
     this.props.AppOverlay.hide()
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isUpdated: true })
+    }, 400)
+  }
+
   render() {
     const grow = 1
+    const another = 0;
 
     return (
       <div
-        // composes: ${col} ${center};
+        // flex-grow: 1;
         css={`
           display: flex;
           flex-direction: column;
           position: relative;
-          flex-shrink: 0;
+          flex-shrink: ${another};
           align-items: center;
           justify-content: center;
           flex-grow: ${grow};
         `}
       >
+
+        <div className={this.state.isUpdated ? BOX_UPDATED : BOX} />
+
+        <div
+          // backgroundColor: var(--main-bg-color);
+          css={`
+            height: 200px;
+            width: 400px;
+            background-color: ${this.state.isUpdated ? 'yellow' : 'blue'};
+          `}
+        />
+
         <span
           css={`
             font-size: 20px;

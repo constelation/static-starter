@@ -61,7 +61,7 @@
     "static-site-generator-webpack-plugin": "^3.4.1",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.2.0",
+    "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1",
     "why-did-you-update": "^0.0.8"
   },
@@ -74,7 +74,7 @@
     "constelation-transition-group-view": "^14.0.0",
     "constelation-view": "^14.0.3",
     "decko": "^1.2.0",
-    "emotion": "^5.2.0",
+    "emotion": "^6.0.1",
     "glamor": "next",
     "glamor-react": "^3.0.0-1",
     "glamor-reset": "^3.0.0-1",

@@ -8,6 +8,7 @@ import { Provider } from 'mobx-react'
 import React from 'react'
 import Text from 'constelation-text'
 import mobx from 'mobx'
+import { injectGlobal } from 'emotion'
 
 import AppOverlay from 'stores/AppOverlay'
 
@@ -38,11 +39,17 @@ const stores = {
   AppOverlay: new AppOverlay(),
 }
 
+injectGlobal`
+  :root {
+    --main-bg-color: brown;
+  }
+`
+
 export class AppBar extends React.Component {
   render() {
     return (
       <Row alignHorizontal='left'>
-        {/* <img src='http://www.fillmurray.com/64/64' /> */}
+        <img src='http://www.fillmurray.com/64/64' />
       </Row>
     )
   }
@@ -64,9 +71,14 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider {...stores}>
-        <Col
-          fit
-          alignVertical='top'
+        <div
+          css={`
+            display: flex;
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+          `}
         >
           {/* <AppBar /> */}
           {/* <TabBar /> */}
@@ -76,7 +88,7 @@ export default class App extends React.Component {
           <OpacityOverlay />
           <Overlay />
 
-        </Col>
+        </div>
       </Provider>
     )
   }

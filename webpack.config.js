@@ -119,7 +119,10 @@ module.exports = function (env = {}) {
 
     // Builds the static files
     config.plugins.push(
-      new ExtractTextPlugin('styles.css'),
+      new ExtractTextPlugin({
+        filename: 'styles.css',
+        allChunks: true,
+      }),
       new StaticSiteGeneratorPlugin({
         entry: 'main',
 
@@ -160,7 +163,10 @@ module.exports = function (env = {}) {
           debug: false,
         }),
 
-        new ExtractTextPlugin('styles.css'),
+        new ExtractTextPlugin({
+          filename: 'styles.css',
+          allChunks: true,
+        }),
 
         // Minifier that understands es6 (vs Uglify)
         new BabiliPlugin(),
