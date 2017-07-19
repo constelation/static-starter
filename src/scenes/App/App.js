@@ -8,7 +8,7 @@ import { Provider } from 'mobx-react'
 import React from 'react'
 import Text from 'constelation-text'
 import mobx from 'mobx'
-import { injectGlobal } from 'emotion'
+import { css, injectGlobal } from 'emotion'
 
 import AppOverlay from 'stores/AppOverlay'
 

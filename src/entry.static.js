@@ -20,7 +20,12 @@ export default (locals: Object, callback: Function) => {
   const location = history.createLocation(locals.path)
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
-    const { html, css, ids } = extractCritical(ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />))
+    const res = ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />)
+
+    const { html, css, ids } = extractCritical(res)
+
+    // console.log(css);
+    // console.log(html);
 
     callback(
       null,
@@ -28,7 +33,7 @@ export default (locals: Object, callback: Function) => {
         css,
         html,
         styleIds: JSON.stringify(ids),
-        style: true,
+        // style: true,
         title: 'Constelation',
         js: [locals.assets.vendor, locals.assets.main],
         // js: Object.keys(locals.assets).map(key => locals.assets[key]),
