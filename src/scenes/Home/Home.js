@@ -109,6 +109,77 @@ export default class Home extends React.Component {
         `}
       >
 
+        {/* <event_ */}
+        {/*   onClick={this.handleClick} */}
+        {/*   hitSlop={20} */}
+        {/* > */}
+        {/*   <style_ */}
+        {/*     backgroundColor={['purple', 'pink']} */}
+        {/*   > */}
+        {/*     <view */}
+        {/*       as='aside' */}
+        {/*       width={200} */}
+        {/*       height={['40px', '80px']} */}
+        {/*       breakpoints={[200, 800]} */}
+        {/*     /> */}
+        {/*   </style_> */}
+        {/* </event_> */}
+        {/*  */}
+        {/* <view */}
+        {/*   as='aside' */}
+        {/*   width={200} */}
+        {/*   height={['40px', '80px']} */}
+        {/*   backgroundColor={['purple', 'pink']} */}
+        {/*   breakpoints={[200, 800]} */}
+        {/*   onClick={this.handleClick} */}
+        {/*   hitSlop={20} */}
+        {/* /> */}
+        {/*  */}
+        {/* <view */}
+        {/*   as='aside' */}
+        {/*   width={200} */}
+        {/*   height='40px' */}
+        {/*   onClick={this.handleClick} */}
+        {/*   style={` */}
+        {/*     background-color: purple; */}
+        {/*   `} */}
+        {/* /> */}
+        {/*  */}
+        {/*  */}
+        {/* <style_ */}
+        {/*   backgroundColor='purple' */}
+        {/* > */}
+        {/*   <view */}
+        {/*     as='aside' */}
+        {/*     width={200} */}
+        {/*     height='40px' */}
+        {/*     // padding={20} */}
+        {/*     css={` */}
+        {/*       background-color: purple; */}
+        {/*     `} */}
+        {/*   /> */}
+        {/* </style_> */}
+        {/*  */}
+        {/* <view */}
+        {/*   as='aside' */}
+        {/*   width={200} */}
+        {/*   height={['40px', '80px']} */}
+        {/*   breakpoints={[200, 800]} */}
+        {/*   style={` */}
+        {/*     background-color: purple; */}
+        {/*   `} */}
+        {/* /> */}
+
+        <view
+          as='nav'
+          width={300}
+          height='30px'
+          // padding={20}
+          css={`
+            background-color: purple;
+          `}
+        />
+
         <div className={this.state.isUpdated ? BOX_UPDATED : BOX} />
 
         <div

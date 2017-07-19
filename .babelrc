@@ -3,6 +3,8 @@
 // Preset ordering is reversed (last to first).
 {
   "plugins": [
+    "./babel/constelation",
+
     /* ["emotion/babel", { "inline": true }], */
     "emotion/babel",
 
