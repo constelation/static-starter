@@ -96,17 +96,21 @@ export default class Home extends React.Component {
     const another = 0;
 
     return (
-      <div
+      <col
+        center
+        grow
         // flex-grow: 1;
-        css={`
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          flex-shrink: ${another};
-          align-items: center;
-          justify-content: center;
-          flex-grow: ${grow};
-        `}
+      // flex-grow: 1;
+      // flex-grow: ;
+        // css={`
+        //   display: flex;
+        //   flex-direction: column;
+        //   position: relative;
+        //   flex-shrink: ${another};
+        //   align-items: center;
+        //   justify-content: center;
+        //   ${true ? 'flex-grow: 1' : ''}
+        // `}
       >
 
         {/* <event_ */}
@@ -172,9 +176,9 @@ export default class Home extends React.Component {
 
         <view
           as='nav'
-          width={300}
+          width='300px'
           height='30px'
-          // padding={20}
+          margin='20px'
           css={`
             background-color: purple;
           `}
@@ -182,58 +186,108 @@ export default class Home extends React.Component {
 
         <div className={this.state.isUpdated ? BOX_UPDATED : BOX} />
 
-        <div
+        <view
+          height='200px'
+          width='400px'
           // backgroundColor: var(--main-bg-color);
           css={`
-            height: 200px;
-            width: 400px;
             background-color: ${this.state.isUpdated ? 'yellow' : 'blue'};
           `}
         />
 
-        <span
-          css={`
-            font-size: 20px;
-          `}
+        <space size='40px' />
+
+        <row
+          height='200px'
+          width='400px'
         >
+          <view
+            grow
+            css={`
+              background-color: red;
+            `}
+          />
+          <view
+            grow
+            css={`
+              background-color: green;
+            `}
+          />
+          <space size='20px' />
+          <view
+            grow
+            css={`
+              background-color: blue;
+            `}
+          />
+        </row>
+
+        <space size='40px' />
+
+        <flex
+          direction={this.state.isUpdated ? 'column' : 'row'}
+          height='200px'
+          width='400px'
+        >
+          <view
+            grow
+            css={`
+              background-color: red;
+            `}
+          />
+          <view
+            grow
+            css={`
+              background-color: green;
+            `}
+          />
+          <view
+            grow
+            css={`
+              background-color: blue;
+            `}
+          />
+        </flex>
+
+        <text size='20px'>
           Home
-        </span>
+        </text>
 
         <Link to='other'>Other</Link>
 
-        <span
+        <text
+          size='16px'
           onClick={this.handleOpenFadeOverlay}
           css={`
-            font-size: 16px;
             padding: 16px;
             border: 1px solid #111;
           `}
         >
           Open Fade Overlay
-        </span>
+        </text>
 
-        <span
+        <text
+          size='16px'
           onClick={this.handleOpenModal}
           css={`
-            font-size: 16px;
             padding: 16px;
             border: 1px solid #111;
           `}
         >
           Open Overlay Light Outer
-        </span>
+        </text>
 
-        <span
+        <text
+          size='16px'
           onClick={this.handleOpenModalDark}
           css={`
-            font-size: 16px;
             padding: 16px;
             border: 1px solid #111;
           `}
         >
           Open Modal Dark Outer
-        </span>
-      </div>
+        </text>
+      </col>
     )
   }
 }

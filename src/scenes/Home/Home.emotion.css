@@ -50,39 +50,35 @@
   background-color: red; }
 .css-BOX_UPDATED-1pa2pyx {
   background-color: green; }
-.css-Home-1wjhkv7 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;
-          -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          flex-direction: column;
-          position: relative;
-          -webkit-flex-shrink: var(--css-Home-1wjhkv7-0);
-          -ms-flex-negative: var(--css-Home-1wjhkv7-0);
-          flex-shrink: var(--css-Home-1wjhkv7-0);
-          -webkit-align-items: center;
-          -ms-flex-align: center;
-          -webkit-box-align: center;
-          align-items: center;
-          -webkit-justify-content: center;
-          -ms-flex-pack: center;
-          -webkit-box-pack: center;
-          justify-content: center;
-          -webkit-flex-grow: var(--css-Home-1wjhkv7-1);
-          -ms-flex-positive: var(--css-Home-1wjhkv7-1);
-          flex-grow: var(--css-Home-1wjhkv7-1); }
-.css-Home-1nk0ij0 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;position: relative;width: 300px;height: 30px;
+.css-Home-1vzsxza { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-align-items: center;-ms-flex-align: center;-webkit-box-align: center;align-items: center;-webkit-justify-content: center;-ms-flex-pack: center;-webkit-box-pack: center;justify-content: center;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1; }
+.css-Home-kssq5x { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;width: 300px;height: 30px;margin: 20px;
             background-color: purple; }
-.css-Home-1buck6g { height: 200px;
-            width: 400px;
-            background-color: var(--css-Home-1buck6g-0); }
-.css-Home-1wrvnja { font-size: 20px; }
-.css-Home-h70lla { font-size: 16px;
+.css-Home-rcx6r3 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;height: 200px;width: 400px;
+            background-color: var(--css-Home-rcx6r3-0); }
+.css-Home-1ibztja { -webkit-flex-grow: 0; -ms-flex-positive: 0; flex-grow: 0;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-flex-basis: 40px;-ms-preferred-size: 40px;flex-basis: 40px; }
+.css-Home-1fqfn1l { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: row;-ms-flex-direction: row;-webkit-box-orient: horizontal;-webkit-box-direction: normal;flex-direction: row;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;height: 200px;width: 400px; }
+.css-Home-10n0dl7 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;
+              background-color: red; }
+.css-Home-asuv6 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;
+              background-color: green; }
+.css-Home-1twycd7 { -webkit-flex-grow: 0; -ms-flex-positive: 0; flex-grow: 0;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-flex-basis: 20px;-ms-preferred-size: 20px;flex-basis: 20px; }
+.css-Home-cb9ahb { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;
+              background-color: blue; }
+.css-Home-1ibztja { -webkit-flex-grow: 0; -ms-flex-positive: 0; flex-grow: 0;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-flex-basis: 40px;-ms-preferred-size: 40px;flex-basis: 40px; }
+.css-Home-ypm15r { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-direction: var(--css-Home-ypm15r-0);-ms-flex-direction: var(--css-Home-ypm15r-0);-webkit-box-orient: horizontal;-webkit-box-direction: normal;flex-direction: var(--css-Home-ypm15r-0);height: 200px;width: 400px; }
+.css-Home-10n0dl7 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;
+              background-color: red; }
+.css-Home-asuv6 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;
+              background-color: green; }
+.css-Home-cb9ahb { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-flex-shrink: 0;-ms-flex-negative: 0;flex-shrink: 0;-webkit-align-content: flex-start;-ms-flex-line-pack: start;align-content: flex-start;position: relative;-webkit-flex-grow: 1;-ms-flex-positive: 1;flex-grow: 1;
+              background-color: blue; }
+.css-Home-18gaxx6 { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;font-size: 20px; }
+.css-Home-15dla7k { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;font-size: 16px;
             padding: 16px;
             border: 1px solid #111; }
-.css-Home-h70lla { font-size: 16px;
+.css-Home-15dla7k { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;font-size: 16px;
             padding: 16px;
             border: 1px solid #111; }
-.css-Home-h70lla { font-size: 16px;
+.css-Home-15dla7k { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;font-size: 16px;
             padding: 16px;
             border: 1px solid #111; }
