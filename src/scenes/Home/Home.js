@@ -98,7 +98,7 @@ export default class Home extends React.Component {
     return (
       <col
         center
-        grow
+        grow={grow}
         // flex-grow: 1;
       // flex-grow: 1;
       // flex-grow: ;

@@ -22,6 +22,8 @@ export default (locals: Object, callback: Function) => {
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     const { html, css, ids } = extractCritical(ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />))
 
+    console.log(css);
+
     callback(
       null,
       htmlTemplate({
