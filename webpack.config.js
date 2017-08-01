@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin')
 const BabiliPlugin = require('babili-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 // The routes that should generate *.html files for being served statically
@@ -64,6 +65,18 @@ module.exports = function (env = {}) {
           use: ['babel-loader'],
           exclude: /node_modules/,
         },
+        {
+          test: /emotion\.css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          })
+        },
         // {variable: 'data'} needed to avoid a 'with' error:
         // http://stackoverflow.com/questions/18679422/issue-with-with-use-strict-and-underscore-js
         { test: /\.ejs$/, loader: 'ejs-loader', options: { variable: 'data' }},
@@ -92,6 +105,11 @@ module.exports = function (env = {}) {
         // Needed for ejs loader
         _: 'lodash',
       }),
+
+      new ExtractTextPlugin({
+        filename: 'styles.css',
+        allChunks: true,
+      }),
     ],
   }
 
@@ -102,19 +120,21 @@ module.exports = function (env = {}) {
     config.output.libraryTarget = 'umd'
 
     // Builds the static files
-    config.plugins.push( new StaticSiteGeneratorPlugin({
-      entry: 'main',
+    config.plugins.push(
+      new StaticSiteGeneratorPlugin({
+        entry: 'main',
 
-      // Rather than manually providing a list of paths, you can use the crawl option to automatically crawl your site
-      crawl: true,
+        // Rather than manually providing a list of paths, you can use the crawl option to automatically crawl your site
+        crawl: true,
 
-      // Note that this can be used in conjunction with the paths option to allow multiple crawler entry points:
-      // paths: [
-      //   '/', // required entry point for crawl if adding explicit paths
-      //   '/notFound',
-      //   // '/other',
-      // ],
-    }))
+        // Note that this can be used in conjunction with the paths option to allow multiple crawler entry points:
+        // paths: [
+        //   '/', // required entry point for crawl if adding explicit paths
+        //   '/notFound',
+        //   // '/other',
+        // ],
+      })
+    )
   }
   // Settings required for generating the js bundles
   else {

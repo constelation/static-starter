@@ -1,7 +1,7 @@
 // @flow
 // Imports {{{
 
-import { rehydrate } from 'glamor'
+import { hydrate } from 'emotion'
 import { useScroll } from 'react-router-scroll'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -15,7 +15,7 @@ import routes from './scenes/index.client'
 // }}}
 
 // Rehydrate glamor ids that were passed in from SSR
-rehydrate(window._glam)
+hydrate(window._styleIds)
 
 // match required for async rendering + SSR. Otherwise, there would be a flash of paint
 match(

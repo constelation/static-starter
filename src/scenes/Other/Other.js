@@ -14,7 +14,12 @@ export default class Other extends React.Component {
       <Col>
         <Text>Other</Text>
 
+        <space size='40px' />
+
         <Link to='/'>Home</Link>
+
+        <space size='40px' />
+
 
         <img src='http://www.fillmurray.com/64/64' />
       </Col>
