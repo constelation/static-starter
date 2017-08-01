@@ -67,7 +67,7 @@ module.exports = function (env = {}) {
         },
         {
           test: /emotion\.css$/,
-          use: env.prod ? ExtractTextPlugin.extract({
+          use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: {
               loader: 'css-loader',
@@ -75,10 +75,7 @@ module.exports = function (env = {}) {
                 sourceMap: true
               }
             }
-          }) : [
-            'style-loader',
-            { loader: 'css-loader' }
-          ]
+          })
         },
         // {variable: 'data'} needed to avoid a 'with' error:
         // http://stackoverflow.com/questions/18679422/issue-with-with-use-strict-and-underscore-js
@@ -108,6 +105,11 @@ module.exports = function (env = {}) {
         // Needed for ejs loader
         _: 'lodash',
       }),
+
+      new ExtractTextPlugin({
+        filename: 'styles.css',
+        allChunks: true,
+      }),
     ],
   }
 
@@ -119,10 +121,6 @@ module.exports = function (env = {}) {
 
     // Builds the static files
     config.plugins.push(
-      new ExtractTextPlugin({
-        filename: 'styles.css',
-        allChunks: true,
-      }),
       new StaticSiteGeneratorPlugin({
         entry: 'main',
 
@@ -161,11 +159,6 @@ module.exports = function (env = {}) {
         new webpack.LoaderOptionsPlugin({
           minimize: true,
           debug: false,
-        }),
-
-        new ExtractTextPlugin({
-          filename: 'styles.css',
-          allChunks: true,
         }),
 
         // Minifier that understands es6 (vs Uglify)

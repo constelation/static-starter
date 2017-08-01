@@ -74,7 +74,7 @@
     "constelation-transition-group-view": "^14.0.0",
     "constelation-view": "^14.0.3",
     "decko": "^1.2.0",
-    "emotion": "^6.0.3",
+    "emotion": "beta",
     "glamor": "next",
     "glamor-react": "^3.0.0-1",
     "glamor-reset": "^3.0.0-1",

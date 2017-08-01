@@ -22,18 +22,15 @@ export default (locals: Object, callback: Function) => {
   match({ routes, location }, (error, redirectLocation, renderProps) => {
     const { html, css, ids } = extractCritical(ReactDOMServer.renderToStaticMarkup(<RouterContext {...renderProps} />))
 
-    console.log(css);
-
     callback(
       null,
       htmlTemplate({
         css,
         html,
         styleIds: JSON.stringify(ids),
-        style: true,
+        externalStyleSheet: true,
         title: 'Constelation',
         js: [locals.assets.vendor, locals.assets.main],
-        // js: Object.keys(locals.assets).map(key => locals.assets[key]),
       }),
     )
   })

@@ -6,8 +6,8 @@
     /* "./babel/constelation", */
     "constelation-babel",
 
-    /* ["emotion/babel", { "inline": true }], */
-    "emotion/babel",
+    ["emotion/babel", { "extractStatic": true }],
+    /* "emotion/babel", */
 
     // able to use `class` instead of `className` and `for` instead of `htmlFor`
     "react-html-attrs",
